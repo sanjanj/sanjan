@@ -1,3 +1,6 @@
+
+index.html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,18 +92,18 @@
 
   /* NIFTY TICKER */
   .nifty-ticker {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 100px; padding: 8px 18px; margin-bottom: 24px;
-    font-size: 13px; font-weight: 600; letter-spacing: 0.3px;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 100px; padding: 5px 12px; margin-bottom: 16px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.3px;
     opacity: 0; transition: opacity 0.5s ease;
   }
   .nifty-ticker.loaded { opacity: 1; }
-  .nifty-label { color: var(--muted); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
-  .nifty-price { color: #fff; font-size: 15px; font-weight: 700; }
-  .nifty-change.up   { color: #26a69a; }
-  .nifty-change.down { color: #ef5350; }
-  .nifty-dot { width: 7px; height: 7px; border-radius: 50%; background: #26a69a; display: inline-block; animation: blink 1.5s ease infinite; }
+  .nifty-label { color: var(--muted); font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .nifty-price { color: #fff; font-size: 11px; font-weight: 700; }
+  .nifty-change.up   { color: #26a69a; font-size: 11px; }
+  .nifty-change.down { color: #ef5350; font-size: 11px; }
+  .nifty-dot { width: 6px; height: 6px; border-radius: 50%; background: #26a69a; display: inline-block; animation: blink 1.5s ease infinite; }
   .nifty-dot.closed  { background: #ef5350; animation: none; }
   @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
   .hero { padding: 40px 0 40px; text-align: center; position: relative; overflow: hidden; }
@@ -377,7 +380,7 @@
 
   <div class="hero">
     <canvas id="candleCanvas"></canvas>
-    <div class="nifty-ticker hero-animate" id="niftyTicker">
+    <div class="nifty-ticker" id="niftyTicker">
       <span class="nifty-dot" id="niftyDot"></span>
       <span class="nifty-label">NIFTY 50</span>
       <span class="nifty-price" id="niftyPrice">--,---</span>
