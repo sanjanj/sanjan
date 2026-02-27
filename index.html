@@ -1,9 +1,14 @@
+
+index.html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sanjan – SIP & Mutual Fund Advisor in Thrissur | ARN-321342</title>
+
+<meta name="google-site-verification" content="f762714b40043f1f" />
 
 <!-- Basic SEO -->
 <meta name="description" content="Start SIP from ₹100/month with free guidance by Sanjan. AMFI Registered MFD ARN-321342, Thrissur, Kerala. Tax saving ELSS, wealth building, health & term insurance." />
@@ -307,12 +312,15 @@
   .insta-link:hover { color: #e6683c; }
 
   /* 1. HERO FADE-IN */
-  .hero-animate { opacity:0; transform:translateY(28px); animation: heroIn 0.7s ease forwards; }
-  .hero .badge    { animation-delay: 0.1s; }
-  .hero h1        { animation-delay: 0.25s; }
-  .hero .hero-sub { animation-delay: 0.4s; }
-  .hero .cta-btn  { animation-delay: 0.55s; }
-  .hero .cta-secondary { animation-delay: 0.65s; }
+  .hero-animate {
+    opacity:0; transform:translateY(28px);
+    animation: heroIn 0.7s ease forwards;
+  }
+  .badge.hero-animate    { animation-delay: 0.10s; }
+  h1.hero-animate        { animation-delay: 0.25s; }
+  .hero-sub.hero-animate { animation-delay: 0.40s; }
+  a.cta-btn.hero-animate { animation-delay: 0.55s; }
+  a.cta-secondary.hero-animate { animation-delay: 0.65s; }
   @keyframes heroIn { to { opacity:1; transform:translateY(0); } }
 
   /* 2. SCROLL REVEAL */
@@ -365,7 +373,7 @@
 <div class="bg-glow"></div>
 
 <!-- Floating WhatsApp -->
-<a href="https://wa.me/919400993435" target="_blank" class="whatsapp-float">
+<a href="https://wa.me/919400993435?text=Hi%20Sanjan!%20%F0%9F%91%8B%20I%20want%20to%20start%20a%20SIP.%20Please%20guide%20me." target="_blank" class="whatsapp-float">
   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.49 2.031 7.807L0 32l8.418-2.006A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.784-1.858l-.487-.29-5.002 1.192 1.27-4.87-.318-.5A13.24 13.24 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.87c-.398-.199-2.354-1.162-2.719-1.295-.365-.133-.631-.199-.897.199-.266.398-1.03 1.295-1.263 1.561-.232.266-.465.299-.863.1-.398-.199-1.681-.62-3.202-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.18-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.673-.897-.686l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.396 1.362-1.396 3.325s1.429 3.856 1.628 4.122c.199.266 2.813 4.296 6.815 6.027.952.411 1.695.657 2.274.841.955.304 1.825.261 2.512.158.766-.114 2.354-.962 2.686-1.891.332-.929.332-1.727.232-1.891-.099-.166-.365-.266-.763-.465z"/></svg>
 </a>
 
@@ -386,7 +394,7 @@
     <div class="badge hero-animate">✦ AMFI Registered MFD · ARN-321342 ✦</div>
     <h1 id="h1" class="hero-animate">Grow Your Wealth With Smart SIP</h1>
     <p class="hero-sub hero-animate" id="heroSub">Start with just <span>₹100/month</span>. Save tax, build wealth & secure your future — guided personally by <span>Sanjan</span>.</p>
-    <a href="tel:9400993435" class="cta-btn hero-animate"><span>📞</span><span id="callBtn">Call Sanjan — Free Advice</span></a>
+    <a href="tel:+919400993435" class="cta-btn hero-animate"><span>📞</span><span id="callBtn">Call Sanjan — Free Advice</span></a>
     <a href="https://www.assetplus.in/mfd/sanjan" target="_blank" class="cta-secondary hero-animate">🚀 <span id="signupBtn">Start SIP Online — Sign Up Now</span></a>
   </div>
 
@@ -450,7 +458,8 @@
     <div id="panelSIP">
       <div class="calc-row">
         <div class="calc-label">Monthly SIP <span id="valAmount" class="calc-val">₹5,000</span></div>
-        <input type="range" class="calc-slider" id="sliderAmount" min="100" max="50000" step="100" value="5000" oninput="calcSIP()">
+        <!-- Log scale: 0–100 → ₹100–₹10Cr -->
+        <input type="range" class="calc-slider" id="sliderAmount" min="0" max="100" step="1" value="38" oninput="calcSIP()">
       </div>
       <div class="calc-row">
         <div class="calc-label">Duration <span id="valYears" class="calc-val">10 Years</span></div>
@@ -458,7 +467,7 @@
       </div>
       <div class="calc-row">
         <div class="calc-label">Expected Return <span id="valRate" class="calc-val">12% p.a.</span></div>
-        <input type="range" class="calc-slider" id="sliderRate" min="6" max="18" step="0.5" value="12" oninput="calcSIP()">
+        <input type="range" class="calc-slider" id="sliderRate" min="6" max="25" step="0.5" value="12" oninput="calcSIP()">
       </div>
       <div class="calc-result">
         <div class="calc-result-label">Total Value at Maturity</div>
@@ -481,7 +490,8 @@
     <div id="panelLump" style="display:none;">
       <div class="calc-row">
         <div class="calc-label">Lumpsum Amount <span id="lValAmount" class="calc-val">₹1,00,000</span></div>
-        <input type="range" class="calc-slider" id="lSliderAmount" min="1000" max="5000000" step="1000" value="100000" oninput="calcLump()">
+        <!-- Log scale: slider 0–100 maps to ₹1,000–₹10,00,00,000 -->
+        <input type="range" class="calc-slider" id="lSliderAmount" min="0" max="100" step="1" value="35" oninput="calcLump()">
       </div>
       <div class="calc-row">
         <div class="calc-label">Duration <span id="lValYears" class="calc-val">10 Years</span></div>
@@ -489,7 +499,7 @@
       </div>
       <div class="calc-row">
         <div class="calc-label">Expected Return <span id="lValRate" class="calc-val">12% p.a.</span></div>
-        <input type="range" class="calc-slider" id="lSliderRate" min="6" max="18" step="0.5" value="12" oninput="calcLump()">
+        <input type="range" class="calc-slider" id="lSliderRate" min="6" max="25" step="0.5" value="12" oninput="calcLump()">
       </div>
       <div class="calc-result">
         <div class="calc-result-label">Total Value at Maturity</div>
@@ -510,6 +520,46 @@
 
   </div>
 
+  <!-- GOAL-BASED SIP PLANNER -->
+  <div class="divider reveal">🎯 Goal-Based SIP Planner</div>
+  <div class="calc-box reveal" id="goalPlanner">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6;">Know your <strong style="color:var(--gold-light)">target</strong> — find out exactly how much to invest every month to reach it.</p>
+
+    <div class="calc-row">
+      <div class="calc-label">My Goal Amount <span id="goalValTarget" class="calc-val">₹25 L</span></div>
+      <!-- Log scale: 0–100 → ₹1L–₹10Cr -->
+      <input type="range" class="calc-slider" id="goalSliderTarget" min="0" max="100" step="1" value="30" oninput="calcGoal()">
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">Time to Achieve <span id="goalValYears" class="calc-val">10 Years</span></div>
+      <input type="range" class="calc-slider" id="goalSliderYears" min="1" max="30" step="1" value="10" oninput="calcGoal()">
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">Expected Return <span id="goalValRate" class="calc-val">12% p.a.</span></div>
+      <input type="range" class="calc-slider" id="goalSliderRate" min="6" max="25" step="0.5" value="12" oninput="calcGoal()">
+    </div>
+
+    <div class="calc-result" style="margin-top:20px;">
+      <div class="calc-result-label">Required Monthly SIP</div>
+      <div class="calc-result-amount" id="goalResultSIP">₹0</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;">
+        <div class="calc-mini">
+          <div class="calc-mini-val" id="goalResultInvested">₹0</div>
+          <div class="calc-mini-label">💼 Total Invested</div>
+        </div>
+        <div class="calc-mini gains">
+          <div class="calc-mini-val" id="goalResultGains">₹0</div>
+          <div class="calc-mini-label">📈 Wealth Gained</div>
+        </div>
+      </div>
+      <a id="goalWhatsApp" href="#" target="_blank"
+        style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:13px 20px;background:rgba(37,211,102,0.12);border:1.5px solid rgba(37,211,102,0.4);color:#25D366;font-weight:700;font-size:14px;border-radius:14px;text-decoration:none;transition:background 0.2s;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32" fill="#25D366"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.49 2.031 7.807L0 32l8.418-2.006A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.784-1.858l-.487-.29-5.002 1.192 1.27-4.87-.318-.5A13.24 13.24 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.87c-.398-.199-2.354-1.162-2.719-1.295-.365-.133-.631-.199-.897.199-.266.398-1.03 1.295-1.263 1.561-.232.266-.465.299-.863.1-.398-.199-1.681-.62-3.202-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.18-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.673-.897-.686l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.396 1.362-1.396 3.325s1.429 3.856 1.628 4.122c.199.266 2.813 4.296 6.815 6.027.952.411 1.695.657 2.274.841.955.304 1.825.261 2.512.158.766-.114 2.354-.962 2.686-1.891.332-.929.332-1.727.232-1.891-.099-.166-.365-.266-.763-.465z"/></svg>
+        Share My Goal with Sanjan
+      </a>
+    </div>
+  </div>
+
   <!-- FAQ -->
   <div class="divider" id="divFaq">Frequently Asked Questions</div>
   <div id="faqSection">
@@ -523,7 +573,7 @@
   </div>
 
   <div style="margin-top:36px;">
-    <a href="tel:9400993435" class="cta-btn"><span class="pulse">📲</span><span id="callBtn2">Call Sanjan Now</span></a>
+    <a href="tel:+919400993435" class="cta-btn"><span class="pulse">📲</span><span id="callBtn2">Call Sanjan Now</span></a>
 
     <a href="https://www.assetplus.in/mfd/sanjan" target="_blank" class="cta-secondary">🚀 <span id="signupBtn2">Start SIP Online — Sign Up Now</span></a>
   </div>
@@ -591,7 +641,11 @@
 
   // ── SIP CALCULATOR ───────────────────────────────────
   function calcSIP() {
-    const P = parseFloat(document.getElementById('sliderAmount').value);
+    // Log scale: slider 0–100 → ₹100–₹10Cr
+    const sliderVal = parseFloat(document.getElementById('sliderAmount').value);
+    const minLog = Math.log10(100);
+    const maxLog = Math.log10(100000000);
+    const P = Math.max(100, Math.round(Math.pow(10, minLog + (sliderVal / 100) * (maxLog - minLog)) / 100) * 100);
     const Y = parseFloat(document.getElementById('sliderYears').value);
     const R = parseFloat(document.getElementById('sliderRate').value);
     const n = Y * 12, r = R / 100 / 12;
@@ -611,7 +665,11 @@
 
   // ── LUMPSUM CALCULATOR ───────────────────────────────
   function calcLump() {
-    const P = parseFloat(document.getElementById('lSliderAmount').value);
+    // Logarithmic scale: slider 0–100 → ₹1,000–₹50,00,000
+    const sliderVal = parseFloat(document.getElementById('lSliderAmount').value);
+    const minLog = Math.log10(1000);
+    const maxLog = Math.log10(100000000);
+    const P = Math.round(Math.pow(10, minLog + (sliderVal / 100) * (maxLog - minLog)) / 1000) * 1000;
     const Y = parseFloat(document.getElementById('lSliderYears').value);
     const R = parseFloat(document.getElementById('lSliderRate').value);
     const fv = P * Math.pow(1 + R/100, Y);
@@ -637,9 +695,43 @@
     if (isSIP) calcSIP(); else calcLump();
   }
 
+  // ── GOAL-BASED SIP PLANNER ───────────────────────────
+  function calcGoal() {
+    // Log scale: slider 0–100 → ₹1L–₹10Cr
+    const sliderVal = parseFloat(document.getElementById('goalSliderTarget').value);
+    const minLog = Math.log10(100000);
+    const maxLog = Math.log10(100000000);
+    const target = Math.round(Math.pow(10, minLog + (sliderVal / 100) * (maxLog - minLog)) / 10000) * 10000;
+
+    const Y = parseFloat(document.getElementById('goalSliderYears').value);
+    const R = parseFloat(document.getElementById('goalSliderRate').value);
+    const n = Y * 12;
+    const r = R / 100 / 12;
+
+    // Reverse SIP formula: P = FV * r / [((1+r)^n - 1) * (1+r)]
+    const monthlySIP = Math.ceil(target * r / ((Math.pow(1 + r, n) - 1) * (1 + r)));
+    const invested = monthlySIP * n;
+    const gains = target - invested;
+
+    document.getElementById('goalValTarget').textContent = fmt(target);
+    document.getElementById('goalValYears').textContent = Y + (Y == 1 ? ' Year' : ' Years');
+    document.getElementById('goalValRate').textContent = R + '% p.a.';
+    document.getElementById('goalResultSIP').textContent = fmt(monthlySIP) + '/mo';
+    document.getElementById('goalResultInvested').textContent = fmt(invested);
+    document.getElementById('goalResultGains').textContent = fmt(Math.max(0, gains));
+
+    // Pre-fill WhatsApp message
+    const msg = encodeURIComponent(
+      `Hi Sanjan! 👋 I used your Goal Planner and want to achieve ${fmt(target)} in ${Y} years.\n` +
+      `My required SIP is ${fmt(monthlySIP)}/month. Can you help me get started? 🚀`
+    );
+    document.getElementById('goalWhatsApp').href = `https://wa.me/919400993435?text=${msg}`;
+  }
+
   // ── INIT ─────────────────────────────────────────────
   calcSIP();
   calcLump();
+  calcGoal();
 
   // ── FAQ ──────────────────────────────────────────────
   function toggleFaq(btn) {
@@ -652,6 +744,19 @@
 
   // ── LANGUAGE TOGGLE ──────────────────────────────────
   let isMalayalam = false;
+
+  // Restore saved language preference
+  if (localStorage.getItem('lang') === 'ml') {
+    isMalayalam = true;
+    // Apply Malayalam on load after DOM is ready
+    setTimeout(() => {
+      const t = T.ml;
+      for (const [id, val] of Object.entries(t)) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = val;
+      }
+    }, 0);
+  }
   const T = {
     en: {
       langBtn:'🌐 മലയാളം', h1:'Grow Your Wealth With Smart SIP',
@@ -736,8 +841,16 @@
 
       document.getElementById('niftyTicker').classList.add('loaded');
     } catch(e) {
-      // Silently hide ticker if API fails
-      document.getElementById('niftyTicker').style.display = 'none';
+      // Show static fallback instead of hiding
+      document.getElementById('niftyPrice').textContent = 'NIFTY 50';
+      document.getElementById('niftyChange').textContent = 'Live data unavailable';
+      document.getElementById('niftyChange').className = 'nifty-change';
+      document.getElementById('niftyChange').style.color = 'var(--muted)';
+      const dot = document.getElementById('niftyDot');
+      dot.className = 'nifty-dot closed';
+      dot.title = 'Market data unavailable';
+      document.querySelector('.nifty-label').style.display = 'none';
+      document.getElementById('niftyTicker').classList.add('loaded');
     }
   }
   fetchNifty();
@@ -764,15 +877,15 @@
     }
 
     let offset = 0; // horizontal scroll offset for live feel
+    let W = 0, H = 0;
 
     function resize() {
-      canvas.width  = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      W = canvas.width  = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
     }
 
     function draw() {
-      resize();
-      const W = canvas.width, H = canvas.height;
+      if (!W || !H) return;
       ctx.clearRect(0, 0, W, H);
 
       const allVals = prices.flatMap(p => [p.high, p.low]);
@@ -810,7 +923,7 @@
     function tick() {
       offset += 0.4;
       // When last candle scrolls off, add new one and remove old
-      if (offset >= (canvas.width / (CANDLES + 2))) {
+      if (offset >= (W / (CANDLES + 2))) {
         offset = 0;
         prices.shift();
         const last  = prices[prices.length - 1];
@@ -824,7 +937,8 @@
       requestAnimationFrame(tick);
     }
 
-    window.addEventListener('resize', draw);
+    window.addEventListener('resize', () => { resize(); draw(); });
+    resize();
     tick();
   })();
 
@@ -890,7 +1004,8 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         animateCounter(document.querySelector('.stat:nth-child(1) .stat-num'), 100, '₹', '', 1000);
-        animateCounter(document.querySelector('.stat:nth-child(2) .stat-num'), 0, '₹', '', 500);
+        // Stat 2 is "₹0 Fee" — display directly, no meaningful animation for zero
+        document.querySelector('.stat:nth-child(2) .stat-num').textContent = '₹0';
         animateCounter(document.querySelector('.stat:nth-child(3) .stat-num'), 100, '', '%', 1200);
         statsObserver.disconnect();
       }
@@ -902,6 +1017,7 @@
 
   function toggleLang() {
     isMalayalam = !isMalayalam;
+    localStorage.setItem('lang', isMalayalam ? 'ml' : 'en');
     const t = isMalayalam ? T.ml : T.en;
     for (const [id, val] of Object.entries(t)) {
       const el = document.getElementById(id);
