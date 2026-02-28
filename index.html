@@ -32,8 +32,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_IN" />
 <meta property="og:site_name" content="Sanjan – MFD Advisor" />
-<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='1200' height='630' fill='%230A0E1A'/%3E%3Crect width='1200' height='630' fill='url(%23g)'/%3E%3Cdefs%3E%3CradialGradient id='g' cx='80%25' cy='10%25'%3E%3Cstop offset='0' stop-color='%23C9A84C' stop-opacity='0.2'/%3E%3Cstop offset='1' stop-color='%230A0E1A' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ctext x='600' y='220' font-family='serif' font-size='100' font-weight='bold' fill='%23F0D080' text-anchor='middle'%3ESanjan%3C/text%3E%3Ctext x='600' y='310' font-family='sans-serif' font-size='36' fill='%237A839A' text-anchor='middle'%3EAMFI Registered MFD %C2%B7 ARN-321342%3C/text%3E%3Ctext x='600' y='390' font-family='sans-serif' font-size='44' fill='%23E8EAF0' text-anchor='middle'%3EStart SIP from %E2%82%B9100%2Fmonth%3C/text%3E%3Ctext x='600' y='460' font-family='sans-serif' font-size='32' fill='%23C9A84C' text-anchor='middle'%3EFree Guidance %C2%B7 Kerala, India%3C/text%3E%3C/svg%3E" />
-
+<meta property="og:image" content="https://sanjanj.github.io/sanjan/og-image.png" />
+<meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
@@ -137,7 +137,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="dns-prefetch" href="https://query1.finance.yahoo.com">
+<link rel="dns-prefetch" href="https://corsproxy.io">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -190,33 +192,15 @@
     background: linear-gradient(135deg, #fff 40%, var(--gold-light));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
-  .hero-sub { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 360px; margin: 0 auto 36px; }
-  .hero-sub span { color: var(--gold-light); font-weight: 500; }
+  .hero-sub { font-family:'Playfair Display',serif; font-style:italic; font-size:16px; font-weight:400; color:#9AA4BA; line-height:1.8; max-width:360px; margin:0 auto 0; }
+  .hero-sub span { color:var(--gold-light); font-style:normal; font-weight:500; }
 
-  /* BUTTONS */
-  .cta-btn {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    width: 100%; padding: 18px 24px;
-    background: linear-gradient(135deg, #C9A84C, #F0D080, #C9A84C);
-    background-size: 200% 200%; color: #0A0E1A;
-    font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700;
-    border: none; border-radius: 16px; text-decoration: none; cursor: pointer;
-    animation: shimmer 3s ease infinite;
-    box-shadow: 0 8px 32px rgba(201,168,76,0.35); transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.5); }
-  .cta-btn:active { transform: scale(0.98); }
-  @keyframes shimmer { 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
-
-  .cta-secondary {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    width: 100%; padding: 16px 24px; margin-top: 12px;
-    background: transparent; color: var(--gold-light);
-    font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600;
-    border: 1.5px solid rgba(201,168,76,0.5); border-radius: 16px;
-    text-decoration: none; cursor: pointer; transition: background 0.2s, border-color 0.2s, transform 0.2s;
-  }
-  .cta-secondary:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); transform: translateY(-2px); }
+  /* HERO CTA TABS */
+  .hero-cta-wrap { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:20px; }
+  .hero-cta-call { padding:11px 10px; border-radius:12px; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; background:rgba(212,168,67,0.15); color:#E8C86A; border:1px solid rgba(212,168,67,0.3); letter-spacing:0.2px; backdrop-filter:blur(8px); transition:background 0.2s, border-color 0.2s; }
+  .hero-cta-call:hover { background:rgba(212,168,67,0.22); border-color:rgba(212,168,67,0.5); }
+  .hero-cta-signup { padding:11px 10px; border-radius:12px; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:400; background:rgba(255,255,255,0.04); color:#8A94AA; border:1px solid rgba(255,255,255,0.07); letter-spacing:0.2px; display:flex; align-items:center; justify-content:center; gap:5px; text-decoration:none; transition:background 0.2s, color 0.2s; }
+  .hero-cta-signup:hover { background:rgba(255,255,255,0.07); color:#B0B8CC; }
 
   /* FLOATING WHATSAPP */
   .whatsapp-float {
@@ -255,7 +239,9 @@
   .card-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; margin-bottom: 5px; color: #fff; }
   .card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-  /* STATS */
+  .card-protect { border-color: rgba(56,189,248,0.15) !important; }
+  .card-protect:hover { border-color: rgba(56,189,248,0.35) !important; }
+  .card-icon-protect { background: rgba(56,189,248,0.1) !important; border-color: rgba(56,189,248,0.25) !important; }
   .stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 36px; }
   .stat { background: var(--card); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 18px 12px; text-align: center; }
   .stat-num { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--gold-light); display: block; }
@@ -266,13 +252,14 @@
   .faq-item:hover { border-color: rgba(201,168,76,0.25); }
   .faq-q {
     width: 100%; background: none; border: none; color: var(--text);
-    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+    font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 300;
     padding: 18px 20px; text-align: left; cursor: pointer;
     display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    line-height: 1.4; letter-spacing: 0.1px;
   }
   .faq-q span.arrow { color: var(--gold); font-size: 20px; transition: transform 0.3s; flex-shrink: 0; line-height: 1; }
   .faq-q.open span.arrow { transform: rotate(45deg); }
-  .faq-a { font-size: 13px; color: var(--muted); line-height: 1.7; padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; }
+  .faq-a { font-size: 14px; color: var(--muted); line-height: 1.75; padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; }
   .faq-a.open { max-height: 400px; padding: 0 20px 18px; }
 
   /* FOOTER */
@@ -306,23 +293,25 @@
     background:transparent; color:var(--muted); transition:all 0.2s;
   }
   .calc-tab.active { background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:#0A0E1A; box-shadow:0 4px 16px rgba(201,168,76,0.3); }
-  .calc-row { margin-bottom:18px; }
-  .calc-label { font-size:12px; color:var(--muted); font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:8px; display:flex; justify-content:space-between; }
+  .calc-row { margin-bottom:12px; }
+  .calc-label { font-size:12px; color:var(--muted); font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:6px; display:flex; justify-content:space-between; }
   .calc-val { color:var(--gold-light); font-size:14px; text-transform:none; letter-spacing:0; font-weight:700; }
   .calc-slider { width:100%; -webkit-appearance:none; appearance:none; height:4px; border-radius:4px; background:rgba(255,255,255,0.1); outline:none; }
   .calc-slider::-webkit-slider-thumb { -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-light)); cursor:pointer; box-shadow:0 2px 8px rgba(201,168,76,0.5); }
-  .calc-result { background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04)); border:1px solid rgba(201,168,76,0.25); border-radius:16px; padding:20px 16px; margin-top:20px; text-align:center; }
-  .calc-result-label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
-  .calc-result-amount { font-family:'Playfair Display',serif; font-size:34px; font-weight:900; color:var(--gold-light); margin-bottom:16px; }
-  .calc-donut-wrap { position:relative; width:160px; height:160px; margin:0 auto 16px; }
+  .calc-result { background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04)); border:1px solid rgba(201,168,76,0.25); border-radius:16px; padding:16px 14px; margin-top:16px; }
+  .calc-result-top { display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+  .calc-result-left { flex:1; }
+  .calc-result-label { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  .calc-result-amount { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; color:var(--gold-light); line-height:1; }
+  .calc-donut-wrap { position:relative; width:100px; height:100px; flex-shrink:0; }
   .calc-donut-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-  .gain-pct { font-family:'Playfair Display',serif; font-size:24px; font-weight:900; color:var(--gold-light); }
-  .gain-pct-label { font-size:11px; color:var(--muted); }
-  .calc-breakdown { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .calc-mini { background:rgba(255,255,255,0.04); border-radius:12px; padding:14px 10px; text-align:center; }
+  .gain-pct { font-family:'Playfair Display',serif; font-size:18px; font-weight:900; color:var(--gold-light); }
+  .gain-pct-label { font-size:10px; color:var(--muted); }
+  .calc-breakdown { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .calc-mini { background:rgba(255,255,255,0.04); border-radius:10px; padding:10px 8px; text-align:center; }
   .calc-mini.gains { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.2); }
-  .calc-mini-val { font-size:17px; font-weight:700; color:#fff; }
-  .calc-mini-label { font-size:11px; color:var(--muted); margin-top:4px; }
+  .calc-mini-val { font-size:15px; font-weight:700; color:#fff; }
+  .calc-mini-label { font-size:10px; color:var(--muted); margin-top:3px; }
 
   /* PROGRESS BAR */
   .progress-bar {
@@ -380,8 +369,8 @@
   .badge.hero-animate    { animation-delay: 0.10s; }
   h1.hero-animate        { animation-delay: 0.25s; }
   .hero-sub.hero-animate { animation-delay: 0.40s; }
-  a.cta-btn.hero-animate { animation-delay: 0.55s; }
-  a.cta-secondary.hero-animate { animation-delay: 0.65s; }
+  .hero-cta-call.hero-animate { animation-delay: 0.55s; }
+  .hero-cta-signup.hero-animate { animation-delay: 0.65s; }
   @keyframes heroIn { to { opacity:1; transform:translateY(0); } }
 
   /* 2. SCROLL REVEAL */
@@ -397,8 +386,8 @@
   }
   .divider.drawn::before, .divider.drawn::after { transform: scaleX(1); }
 
-  /* 4. BUTTON RIPPLE */
-  .cta-btn, .cta-secondary, .wa-share-btn { overflow:hidden; position:relative; }
+  /* BUTTON RIPPLE */
+  .hero-cta-call, .wa-share-btn { overflow:hidden; position:relative; }
   .ripple {
     position:absolute; border-radius:50%;
     background:rgba(255,255,255,0.25);
@@ -422,7 +411,22 @@
 
   .pulse { display: inline-block; animation: pulse 2s ease infinite; }
   @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
-  /* CALC CTA */
+  /* RETURNS COMPARISON */
+  .compare-box { background:var(--card); border:1px solid rgba(201,168,76,0.2); border-radius:20px; padding:20px 16px; margin-bottom:36px; }
+  .compare-intro { font-size:13px; color:var(--muted); font-weight:300; line-height:1.65; margin-bottom:18px; }
+  .compare-intro strong { color:var(--gold-light); font-weight:500; }
+  .compare-row-stmt { display:flex; align-items:center; justify-content:space-between; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+  .compare-row-top { background:rgba(201,168,76,0.06); border-radius:14px; padding:14px 12px; margin-bottom:8px; border:1px solid rgba(201,168,76,0.18); }
+  .stmt-left { display:flex; align-items:center; gap:12px; }
+  .stmt-emoji { font-size:22px; flex-shrink:0; }
+  .stmt-name-top { font-size:15px; font-weight:600; color:#fff; }
+  .stmt-sub-top { font-size:10px; color:rgba(201,168,76,0.6); margin-top:2px; font-weight:300; }
+  .stmt-amount-top { font-family:'Playfair Display',serif; font-size:24px; font-weight:900; color:var(--gold-light); }
+  .stmt-advantage { font-size:11px; color:#26a69a; font-weight:600; margin-top:3px; text-align:right; }
+  .stmt-name-muted { font-size:14px; font-weight:300; color:var(--muted); }
+  .stmt-rate-muted { font-size:10px; color:rgba(138,148,170,0.5); margin-top:2px; font-weight:300; }
+  .stmt-amount-muted { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--muted); flex-shrink:0; }
+  .compare-disclaimer { font-size:10px; color:rgba(138,148,170,0.5); margin-top:16px; line-height:1.6; text-align:center; }
   .calc-cta-btn {
     display:flex; align-items:center; justify-content:center; gap:8px;
     width:100%; padding:13px 20px; margin-top:14px;
@@ -472,7 +476,9 @@
   @keyframes resultPop { 0%{transform:scale(0.95);opacity:0.5;} 100%{transform:scale(1);opacity:1;} }
   .result-pop { animation: resultPop 0.3s ease; }
 
-  /* FAQ BADGE */
+  /* FAQ CATEGORY */
+  .faq-category { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin:20px 0 10px; padding-left:4px; opacity:0.7; }
+  .faq-category:first-child { margin-top:0; }
   .faq-badge {
     display:inline-flex; align-items:center; gap:5px;
     background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.3);
@@ -524,24 +530,28 @@
   <div class="hero">
     <canvas id="candleCanvas" aria-hidden="true"></canvas>
     <span class="candle-label">Simulated market data</span>
-    <div class="nifty-ticker" id="niftyTicker">
-      <span class="nifty-dot" id="niftyDot"></span>
-      <span class="nifty-label">NIFTY 50</span>
-      <span class="nifty-price" id="niftyPrice">--,---</span>
-      <span class="nifty-change" id="niftyChange">--</span>
+    <div style="background:var(--card);border:1px solid rgba(201,168,76,0.15);border-radius:24px;padding:26px 18px;">
+      <div class="nifty-ticker" id="niftyTicker">
+        <span class="nifty-dot" id="niftyDot"></span>
+        <span class="nifty-label">NIFTY 50</span>
+        <span class="nifty-price" id="niftyPrice">--,---</span>
+        <span class="nifty-change" id="niftyChange">--</span>
+      </div>
+      <div class="badge hero-animate">✦ AMFI Registered MFD · ARN-321342 ✦</div>
+      <h1 id="h1" class="hero-animate">Grow Your Wealth With Smart SIP</h1>
+      <p class="hero-sub hero-animate" id="heroSub">Start with just <span>₹100/month</span>. Save tax, build wealth & secure your future — guided personally by <span>Sanjan</span>.</p>
+      <div class="hero-cta-wrap hero-animate">
+        <button id="callBtn1" class="hero-cta-call" aria-label="Call Sanjan for free advice">📞 <span id="callBtn">Call Sanjan</span></button>
+        <a href="https://www.assetplus.in/mfd/sanjan" target="_blank" rel="noopener noreferrer" class="hero-cta-signup">🚀 <span id="signupBtn">Start SIP Online</span></a>
+      </div>
+      <span class="btn-feedback" id="callFeedback1">📞 Opening dialler...</span>
     </div>
-    <div class="badge hero-animate">✦ AMFI Registered MFD · ARN-321342 ✦</div>
-    <h1 id="h1" class="hero-animate">Grow Your Wealth With Smart SIP</h1>
-    <p class="hero-sub hero-animate" id="heroSub">Start with just <span>₹100/month</span>. Save tax, build wealth & secure your future — guided personally by <span>Sanjan</span>.</p>
-    <a id="callBtn1" href="#" class="cta-btn hero-animate" aria-label="Call Sanjan for free advice"><span>📞</span><span id="callBtn">Call Sanjan — Free Advice</span></a>
-    <span class="btn-feedback" id="callFeedback1">📞 Opening dialler...</span>
-    <a href="https://www.assetplus.in/mfd/sanjan" target="_blank" rel="noopener noreferrer" class="cta-secondary hero-animate">🚀 <span id="signupBtn">Start SIP Online — Sign Up Now</span></a>
   </div>
 
   <div class="stats reveal">
-    <div class="stat"><span class="stat-icon">₹</span><span class="stat-num" id="s1num">₹100</span><div class="stat-label" id="s1">Start SIP</div></div>
+    <div class="stat"><span class="stat-icon">🌱</span><span class="stat-num" id="s1num">₹100</span><div class="stat-label" id="s1">Min. SIP</div></div>
     <div class="stat"><span class="stat-icon">📱</span><span class="stat-num" id="s2num">100%</span><div class="stat-label" id="s2">Paperless KYC</div></div>
-    <div class="stat"><span class="stat-icon">₹</span><span class="stat-num" id="s3num">Zero</span><div class="stat-label" id="s3">No Hidden Fees</div></div>
+    <div class="stat"><span class="stat-icon">🎯</span><span class="stat-num" id="s3num">₹0</span><div class="stat-label" id="s3">Hidden Fees</div></div>
   </div>
 
   <h2 class="divider" id="div1">Why SIP with Sanjan</h2>
@@ -552,11 +562,11 @@
     <div class="card"><div class="card-icon">🌱</div><div><div class="card-title" id="c3t">Beginner Friendly</div><div class="card-desc" id="c3d">Never invested before? No problem. Sanjan will explain everything in simple language — zero jargon.</div></div></div>
   </div>
 
-  <h2 class="divider" id="div2">Also Available</h2>
+  <h2 class="divider" id="div2">Protection & Security</h2>
 
   <div class="cards reveal" style="margin-bottom:36px;">
-    <div class="card"><div class="card-icon">🏥</div><div><div class="card-title" id="c4t">Health Insurance</div><div class="card-desc" id="c4d">Protect your family from rising medical costs. Get the right health cover at the best premium — personally guided by Sanjan.</div></div></div>
-    <div class="card"><div class="card-icon">🛡️</div><div><div class="card-title" id="c5t">Term Life Insurance</div><div class="card-desc" id="c5d">Secure your family's future with a high-cover term plan at a low premium. Pure protection, no hidden costs.</div></div></div>
+    <div class="card card-protect"><div class="card-icon card-icon-protect">🏥</div><div><div class="card-title" id="c4t">Health Insurance</div><div class="card-desc" id="c4d">Protect your family from rising medical costs. Get the right health cover at the best premium — personally guided by Sanjan.</div></div></div>
+    <div class="card card-protect"><div class="card-icon card-icon-protect">🛡️</div><div><div class="card-title" id="c5t">Term Life Insurance</div><div class="card-desc" id="c5d">Secure your family's future with a high-cover term plan at a low premium. Pure protection, no hidden costs.</div></div></div>
   </div>
 
   <!-- HOW IT WORKS -->
@@ -606,17 +616,21 @@
         <input type="range" class="calc-slider" id="sliderYears" min="1" max="30" step="1" value="10">
       </div>
       <div class="calc-row">
-        <div class="calc-label">Expected Return <span id="valRate" class="calc-val">12% p.a.</span></div>
-        <input type="range" class="calc-slider" id="sliderRate" min="6" max="25" step="0.5" value="12">
+        <div class="calc-label">Expected Return <span id="valRate" class="calc-val">15% p.a.</span></div>
+        <input type="range" class="calc-slider" id="sliderRate" min="6" max="25" step="0.5" value="15">
       </div>
       <div class="calc-result">
-        <div class="calc-result-label">Total Value at Maturity</div>
-        <div class="calc-result-amount" id="resultAmount">₹11.61 L</div>
-        <div class="calc-donut-wrap">
-          <canvas id="sipChart" width="160" height="160" aria-hidden="true"></canvas>
-          <div class="calc-donut-center">
-            <div id="gainPct" class="gain-pct">48%</div>
-            <div class="gain-pct-label">Gain</div>
+        <div class="calc-result-top">
+          <div class="calc-result-left">
+            <div class="calc-result-label">Total Value at Maturity</div>
+            <div class="calc-result-amount" id="resultAmount">₹11.61 L</div>
+          </div>
+          <div class="calc-donut-wrap">
+            <canvas id="sipChart" width="100" height="100" aria-hidden="true"></canvas>
+            <div class="calc-donut-center">
+              <div id="gainPct" class="gain-pct">48%</div>
+              <div class="gain-pct-label">Gain</div>
+            </div>
           </div>
         </div>
         <div class="calc-breakdown">
@@ -646,13 +660,17 @@
         <input type="range" class="calc-slider" id="lSliderRate" min="6" max="25" step="0.5" value="12">
       </div>
       <div class="calc-result">
-        <div class="calc-result-label">Total Value at Maturity</div>
-        <div class="calc-result-amount" id="lResultAmount">₹3.11 L</div>
-        <div class="calc-donut-wrap">
-          <canvas id="lumpChart" width="160" height="160" aria-hidden="true"></canvas>
-          <div class="calc-donut-center">
-            <div id="lGainPct" class="gain-pct">211%</div>
-            <div class="gain-pct-label">Gain</div>
+        <div class="calc-result-top">
+          <div class="calc-result-left">
+            <div class="calc-result-label">Total Value at Maturity</div>
+            <div class="calc-result-amount" id="lResultAmount">₹3.11 L</div>
+          </div>
+          <div class="calc-donut-wrap">
+            <canvas id="lumpChart" width="100" height="100" aria-hidden="true"></canvas>
+            <div class="calc-donut-center">
+              <div id="lGainPct" class="gain-pct">211%</div>
+              <div class="gain-pct-label">Gain</div>
+            </div>
           </div>
         </div>
         <div class="calc-breakdown">
@@ -664,10 +682,56 @@
 
   </div>
 
+  <!-- RETURNS COMPARISON -->
+  <h2 class="divider reveal">What your money becomes</h2>
+  <div class="compare-box reveal" id="compareBox">
+    <div class="compare-intro" id="cmpIntro">If you invest <strong>₹5,000/month</strong> for <strong>10 years</strong>, here's what each could have historically grown to:</div>
+
+    <!-- SIP — highlighted -->
+    <div class="compare-row-stmt compare-row-top">
+      <div class="stmt-left">
+        <span class="stmt-emoji">📈</span>
+        <div>
+          <div class="stmt-name-top">SIP · Equity</div>
+          <div class="stmt-sub-top">Nifty LargeMidcap 250 · 15% CAGR</div>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <div class="stmt-amount-top" id="cmpSIP">—</div>
+        <div class="stmt-advantage" id="cmpAdvantage">—</div>
+      </div>
+    </div>
+
+    <!-- Gold -->
+    <div class="compare-row-stmt">
+      <div class="stmt-left">
+        <span class="stmt-emoji">🥇</span>
+        <div>
+          <div class="stmt-name-muted">Gold</div>
+          <div class="stmt-rate-muted">Sovereign Gold Bond · 8% p.a.</div>
+        </div>
+      </div>
+      <div class="stmt-amount-muted" id="cmpGold">—</div>
+    </div>
+
+    <!-- FD -->
+    <div class="compare-row-stmt" style="border-bottom:none;">
+      <div class="stmt-left">
+        <span class="stmt-emoji">🏦</span>
+        <div>
+          <div class="stmt-name-muted">Fixed Deposit</div>
+          <div class="stmt-rate-muted">Bank FD · 7% p.a.</div>
+        </div>
+      </div>
+      <div class="stmt-amount-muted" id="cmpFD">—</div>
+    </div>
+
+    <div class="compare-disclaimer">⚠️ Returns shown are illustrative. SIP based on Nifty LargeMidcap 250 historical CAGR of 15%. FD at 7% p.a. and Gold at 8% p.a. are indicative. Past performance is not indicative of future returns. Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing.</div>
+  </div>
+
   <!-- GOAL-BASED SIP PLANNER -->
   <h2 class="divider reveal">🎯 Goal-Based SIP Planner</h2>
   <div class="calc-box reveal" id="goalPlanner">
-    <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6;">Know your <strong style="color:var(--gold-light)">target</strong> — find out exactly how much to invest every month to reach it.</p>
 
     <div class="calc-row">
       <div class="calc-label">My Goal Amount <span id="goalValTarget" class="calc-val">₹25 L</span></div>
@@ -683,10 +747,18 @@
       <input type="range" class="calc-slider" id="goalSliderRate" min="6" max="25" step="0.5" value="12">
     </div>
 
-    <div class="calc-result" style="margin-top:20px;">
-      <div class="calc-result-label">Required Monthly SIP</div>
-      <div class="calc-result-amount" id="goalResultSIP">₹0</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;">
+    <div class="calc-result" style="margin-top:16px;">
+      <div class="calc-result-top" style="align-items:flex-start;">
+        <div class="calc-result-left">
+          <div class="calc-result-label">Required Monthly SIP</div>
+          <div class="calc-result-amount" id="goalResultSIP">₹0</div>
+        </div>
+      </div>
+      <div id="goalFeasibility" class="feasibility green" role="status" aria-live="polite" style="margin-top:10px;margin-bottom:12px;">
+        <span class="feasibility-dot"></span>
+        <span id="goalFeasibilityText">Achievable 🎯</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
         <div class="calc-mini">
           <div class="calc-mini-val" id="goalResultInvested">₹0</div>
           <div class="calc-mini-label">💼 Total Invested</div>
@@ -695,10 +767,6 @@
           <div class="calc-mini-val" id="goalResultGains">₹0</div>
           <div class="calc-mini-label">📈 Wealth Gained</div>
         </div>
-      </div>
-      <div id="goalFeasibility" class="feasibility green" role="status" aria-live="polite">
-        <span class="feasibility-dot"></span>
-        <span id="goalFeasibilityText">Achievable — great goal! 🎯</span>
       </div>
       <a id="goalWhatsApp" href="#" target="_blank" rel="noopener noreferrer"
         style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:13px 20px;background:rgba(37,211,102,0.12);border:1.5px solid rgba(37,211,102,0.4);color:#25D366;font-weight:700;font-size:14px;border-radius:14px;text-decoration:none;transition:background 0.2s;">
@@ -711,24 +779,30 @@
   <!-- FAQ -->
   <h2 class="divider" id="divFaq">Frequently Asked Questions <span class="faq-badge">11 Answered</span></h2>
   <div id="faqSection">
+    <div class="faq-category">📈 Investing & SIP</div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q1">Is my money safe in Mutual Funds?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a1">Mutual funds are regulated by SEBI, India's top financial regulator. Your money is held by an independent custodian — not by me or AssetPlus. While market risks exist, long-term SIPs have historically delivered 10–15% annual returns. Risk reduces significantly over a 7–10 year horizon.</span></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q2">Can I stop or pause my SIP anytime?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a2">Yes! SIP is completely flexible. You can pause, stop, increase, or decrease your SIP amount anytime — no penalty, no lock-in (except ELSS which has a 3-year lock-in for tax benefit).</span></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q3">What is the minimum amount to start SIP?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a3">You can start a SIP with as little as ₹100 per month. There is no maximum limit. Start small, build the habit, and increase when you're ready.</span></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q4">How does Sanjan earn? Do I pay anything?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a4">My guidance is completely free for you. I earn a small trail commission directly from the AMC (fund house) through the regular plan's expense ratio — this is standard practice for all AMFI-registered MFDs in India and is fully regulated by SEBI. The regular plan's expense ratio is marginally higher than a direct plan, but what you get in return is ongoing personalised guidance, fund selection, and someone to call when markets fall. You pay nothing out of pocket, ever.</span></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q5">How do I start SIP with Sanjan?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a5">Simple! Call or WhatsApp me for a free conversation about your goals, or click "Start SIP Online" to register directly on AssetPlus. You'll need your PAN card and Aadhaar for KYC — takes just 10 minutes!</span></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q6">Why Regular Plan instead of Direct Plan?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a6">Direct plans have a slightly lower expense ratio — but you are fully on your own for fund selection, rebalancing, and decisions during market crashes. With a Regular Plan through me, you get personalised fund selection, portfolio reviews, and ongoing guidance, all at zero cost to you. For most investors, the guidance is worth far more than the small difference in expense ratio.</span></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q7">How does SIP save tax?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a7">ELSS mutual funds qualify for tax deduction under Section 80C. Invest up to ₹1.5 lakh per year and save up to ₹46,800 in taxes. ELSS has only a 3-year lock-in — the shortest of all 80C options — and historically delivers strong market-linked returns over that period.</span></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q8">What happens to my SIP if the market crashes?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a8">This is actually when SIP works best. When markets fall, your fixed monthly amount buys more units at lower prices — this is called rupee cost averaging. Historically, investors who continued SIPs through crashes like 2008, 2020, and 2022 came out significantly ahead. The worst thing you can do is stop your SIP when markets fall. I'm here to guide you through exactly those moments.</span></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q9">Is there a lock-in period for my investments?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a9">For most mutual funds — no lock-in at all. You can redeem anytime (exit load may apply within 1 year for equity funds). The only exception is ELSS tax-saving funds, which have a 3-year lock-in per SIP instalment. I will always tell you upfront what applies to the fund I recommend.</span></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q10">Do you recommend specific insurance brands?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a10">No. I am completely unbiased and not tied to any specific insurer. My job is to understand your family's needs and find the right health or term cover at the best premium — across all available options. You get honest advice, not a sales pitch for a particular brand.</span></div></div>
+
+    <div class="faq-category">🤝 Working with Sanjan</div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q4">How does Sanjan earn? Do I pay anything?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a4">My guidance is completely free for you. I earn a small trail commission directly from the AMC (fund house) through the regular plan's expense ratio — this is standard practice for all AMFI-registered MFDs in India and is fully regulated by SEBI. The regular plan's expense ratio is marginally higher than a direct plan, but what you get in return is ongoing personalised guidance, fund selection, and someone to call when markets fall. You pay nothing out of pocket, ever.</span></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q5">How do I start SIP with Sanjan?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a5">Simple! Call or WhatsApp me for a free conversation about your goals, or click "Start SIP Online" to register directly on AssetPlus. You'll need your PAN card and Aadhaar for KYC — takes just 10 minutes!</span></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q6">Why Regular Plan instead of Direct Plan?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a6">Direct plans have a slightly lower expense ratio — but you are fully on your own for fund selection, rebalancing, and decisions during market crashes. With a Regular Plan through me, you get personalised fund selection, portfolio reviews, and ongoing guidance, all at zero cost to you. For most investors, the guidance is worth far more than the small difference in expense ratio.</span></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q11">Do you offer home visits? What's covered and what does it cost?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a11">Yes — I offer in-person financial wellness sessions at your home in Thrissur and nearby areas. This is a physical visit only; not available online or over phone. In the session, we cover your emergency fund (my core speciality — how much you need, where to keep it, and how to build it), health insurance assessment (current gaps and the right cover for your family), and term life insurance review. A one-time fee applies, based on your location and the complexity of your financial situation. WhatsApp me to discuss and schedule.</span></div></div>
+
+    <div class="faq-category">🛡️ Insurance</div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span id="q10">Do you recommend specific insurance brands?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a10">No. I am completely unbiased and not tied to any specific insurer. My job is to understand your family's needs and find the right health or term cover at the best premium — across all available options. You get honest advice, not a sales pitch for a particular brand.</span></div></div>
   </div>
 
   <div style="margin-top:36px;">
-    <a id="callBtn3" href="#" class="cta-btn" aria-label="Call Sanjan now"><span class="pulse">📲</span><span id="callBtn2">Call Sanjan Now</span></a>
+    <div class="hero-cta-wrap">
+      <button id="callBtn3" class="hero-cta-call" aria-label="Call Sanjan now">📲 <span id="callBtn2">Call Sanjan</span></button>
+      <a href="https://www.assetplus.in/mfd/sanjan" target="_blank" rel="noopener noreferrer" class="hero-cta-signup">🚀 <span id="signupBtn2">Start SIP Online</span></a>
+    </div>
     <span class="btn-feedback" id="callFeedback2">📞 Opening dialler...</span>
-
-    <a href="https://www.assetplus.in/mfd/sanjan" target="_blank" rel="noopener noreferrer" class="cta-secondary">🚀 <span id="signupBtn2">Start SIP Online — Sign Up Now</span></a>
   </div>
 
   <!-- WhatsApp Share -->
@@ -764,6 +838,12 @@
       <strong>⚠️ Important Disclaimer</strong>
       <span id="disclaimer">Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing.</span>
     </div>
+    <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;">
+      <span style="font-size:10px;color:rgba(138,148,170,0.5);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:4px 10px;letter-spacing:0.5px;">AMFI REGISTERED</span>
+      <span style="font-size:10px;color:rgba(138,148,170,0.5);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:4px 10px;letter-spacing:0.5px;">SEBI REGULATED</span>
+      <span style="font-size:10px;color:rgba(138,148,170,0.5);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:4px 10px;letter-spacing:0.5px;">ARN-321342</span>
+    </div>
+    <div style="margin-top:12px;font-size:10px;color:rgba(138,148,170,0.4);">© 2026 Sanjan Jayadevan · All rights reserved</div>
   </div>
 
 </div>
@@ -781,7 +861,7 @@
     ['callBtn1','callBtn3'].forEach(function(id){
       var el=document.getElementById(id);
       if(!el)return;
-      el.removeAttribute('href');el.style.cursor='pointer';
+      el.style.cursor='pointer';
       el.addEventListener('click',function(e){e.preventDefault();x8();});
     });
     var e2=document.getElementById('waFloat');
@@ -794,6 +874,31 @@
       try{document.querySelectorAll('script[type="application/ld+json"]').forEach(function(s){var d=JSON.parse(s.textContent);if(d['@type']==='FinancialService'){d.telephone='+'+f1();s.textContent=JSON.stringify(d);}});}catch(e){}
     },4000);
   })();
+
+  // ── RETURNS COMPARISON ───────────────────────────────
+  function updateComparison(P, Y, fvSIP) {
+    const n = Y * 12;
+    const rFD   = 7  / 100 / 12;
+    const rGold = 8  / 100 / 12;
+    const fvFD   = P * ((Math.pow(1+rFD,  n)-1)/rFD)   * (1+rFD);
+    const fvGold = P * ((Math.pow(1+rGold,n)-1)/rGold) * (1+rGold);
+
+    // Update intro sentence
+    const introEl = document.getElementById('cmpIntro');
+    if (introEl) {
+      introEl.innerHTML = `If you invest <strong>${fmt(P)}/month</strong> for <strong>${Y} ${Y===1?'year':'years'}</strong>, here's what each could have historically grown to:`;
+    }
+
+    // Update amounts
+    document.getElementById('cmpSIP').textContent  = fmt(fvSIP);
+    document.getElementById('cmpFD').textContent   = fmt(fvFD);
+    document.getElementById('cmpGold').textContent = fmt(fvGold);
+
+    // Advantage % vs FD
+    const advPct = Math.round(((fvSIP - fvFD) / fvFD) * 100);
+    const advEl = document.getElementById('cmpAdvantage');
+    if (advEl) advEl.textContent = '+' + advPct + '% more than FD';
+  }
 
   // ── FORMAT (L/Cr with no trailing zeros) ─────────────
   function fmt(v) {
@@ -835,8 +940,8 @@
     const ctx = canvas.getContext('2d');
     const total = invested + gains;
     const investedAngle = (invested / total) * 2 * Math.PI;
-    const cx = 80, cy = 80, r = 65, thick = 18;
-    ctx.clearRect(0, 0, 160, 160);
+    const cx = 50, cy = 50, r = 40, thick = 12;
+    ctx.clearRect(0, 0, 100, 100);
     ctx.beginPath();
     ctx.arc(cx, cy, r, -Math.PI/2, -Math.PI/2 + investedAngle);
     ctx.strokeStyle = 'rgba(255,255,255,0.15)';
@@ -876,6 +981,7 @@
     document.getElementById('resultGains').textContent = fmt(gains);
     document.getElementById('gainPct').textContent = gainPct + '%';
     drawDonut('sipChart', invested, gains);
+    updateComparison(P, Y, fv);
     // Update SIP CTA
     var calcMsg = 'Hi Sanjan! I calculated that investing ' + fmt(P) + '/month for ' + Y + ' years can grow to ' + fmt(fv) + '. Help me start? https://sanjanj.github.io/sanjan/';
     var sipCtaEl = document.getElementById('sipCalcCTA');
@@ -962,13 +1068,13 @@
     const feasText = document.getElementById('goalFeasibilityText');
     if (monthlySIP <= 25000) {
       feas.className = 'feasibility green';
-      feasText.textContent = 'Achievable — a great goal!';
+      feasText.textContent = 'Achievable 🎯';
     } else if (monthlySIP <= 100000) {
       feas.className = 'feasibility yellow';
-      feasText.textContent = 'Ambitious — but very possible!';
+      feasText.textContent = 'Ambitious — possible!';
     } else {
       feas.className = 'feasibility red';
-      feasText.textContent = 'High SIP needed — try a longer timeline';
+      feasText.textContent = 'Try a longer timeline';
     }
     // WhatsApp message — store as data attribute; click handler assembles number at click-time
     var goalMsg = 'Hi Sanjan! I want to achieve ' + fmt(target) + ' in ' + Y + ' years. My required SIP is ' + fmt(monthlySIP) + '/month. Can you help me get started?';
@@ -1023,8 +1129,8 @@
     en: {
       langBtn:'🌐 മലയാളം', h1:'Grow Your Wealth With Smart SIP',
       heroSub:'Start with just <span>₹100/month</span>. Save tax, build wealth & secure your future — guided personally by <span>Sanjan</span>.',
-      callBtn:'Call Sanjan — Free Advice', callBtn2:'Call Sanjan Now',
-      signupBtn:'Start SIP Online — Sign Up Now', signupBtn2:'Start SIP Online — Sign Up Now',
+      callBtn:'Call Sanjan', callBtn2:'Call Sanjan',
+      signupBtn:'Start SIP Online', signupBtn2:'Start SIP Online',
       s1:'Start SIP', s2:'Paperless KYC', s3:'No Hidden Fees',
       div1:'Why SIP with Sanjan', div2:'Also Available', divFaq:'Frequently Asked Questions <span class="faq-badge">11 Answered</span>',
       divHow:'How It Works', divCalc:'Investment Calculator',
@@ -1053,8 +1159,8 @@
     ml: {
       langBtn:'🌐 English', h1:'SIP ലൂടെ നിങ്ങളുടെ സമ്പത്ത് വളർത്തൂ',
       heroSub:'വെറും <span>₹100/മാസം</span> മുതൽ തുടങ്ങാം. നികുതി ലാഭിക്കൂ, സമ്പത്ത് ഉണ്ടാക്കൂ — <span>Sanjan</span> സൗജന്യമായി സഹായിക്കും.',
-      callBtn:'Sanjan നെ വിളിക്കൂ — സൗജന്യ ഉപദേശം', callBtn2:'ഇപ്പോൾ വിളിക്കൂ',
-      signupBtn:'ഓൺലൈൻ SIP തുടങ്ങൂ — Sign Up ചെയ്യൂ', signupBtn2:'ഓൺലൈൻ SIP തുടങ്ങൂ',
+      callBtn:'Sanjan നെ വിളിക്കൂ', callBtn2:'Sanjan നെ വിളിക്കൂ',
+      signupBtn:'ഓൺലൈൻ SIP തുടങ്ങൂ', signupBtn2:'ഓൺലൈൻ SIP തുടങ്ങൂ',
       s1:'നിയന്ത്രിതം', s2:'പേപ്പർലെസ് KYC', s3:'മറഞ്ഞ ഫീ ഇല്ല',
       div1:'എന്തുകൊണ്ട് Sanjan ഉടെ SIP?', div2:'ഇതും ലഭ്യമാണ്', divFaq:'പതിവ് ചോദ്യങ്ങൾ <span class="faq-badge">11 ഉത്തരങ്ങൾ</span>',
       divHow:'എങ്ങനെ തുടങ്ങാം', divCalc:'നിക്ഷേപ കാൽക്കുലേറ്റർ',
@@ -1263,7 +1369,7 @@
   document.querySelectorAll('.divider').forEach(el => dividerObserver.observe(el));
 
   // ── BUTTON RIPPLE ─────────────────────────────────────
-  document.querySelectorAll('.cta-btn, .cta-secondary, .wa-share-btn').forEach(btn => {
+  document.querySelectorAll('.hero-cta-call, .hero-cta-signup, .wa-share-btn').forEach(btn => {
     btn.addEventListener('click', function(e) {
       const ripple = document.createElement('span');
       ripple.classList.add('ripple');
