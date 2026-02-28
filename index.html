@@ -488,32 +488,6 @@
     .scroll-top { bottom: 90px; }
   }
 
-  /* PWA Install Banner */
-  #installBanner {
-    display: none;
-    position: fixed;
-    bottom: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
-    max-width: 440px;
-    z-index: 1000;
-    background: #181E30;
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 16px;
-    padding: 14px 16px;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-    animation: slideUpBanner 0.4s ease both;
-  }
-  #installBanner.show { display: flex; }
-  @keyframes slideUpBanner {
-    from { opacity:0; transform: translateX(-50%) translateY(20px); }
-    to   { opacity:1; transform: translateX(-50%) translateY(0); }
-  }
-
 </style>
 </head>
 <body>
@@ -524,7 +498,7 @@
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <!-- PWA Install Banner -->
-<div id="installBanner">
+<div id="installBanner" style="display:none;position:fixed;bottom:90px;left:50%;transform:translateX(-50%);width:calc(100% - 40px);max-width:440px;z-index:1000;background:#181E30;border:1px solid rgba(201,168,76,0.3);border-radius:16px;padding:14px 16px;align-items:center;gap:12px;box-shadow:0 8px 32px rgba(0,0,0,0.5);">
   <div style="width:44px;height:44px;flex-shrink:0;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;">₹</div>
   <div style="flex:1;">
     <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:2px;">Add to Home Screen</div>
@@ -1332,47 +1306,50 @@
   const _installB = document.getElementById('installBtn');
   const _dismissB = document.getElementById('dismissBtn');
   let _dismissed  = false;
+  let _bannerShown = false;
   try { _dismissed = localStorage.getItem('pwa_dismissed') === '1'; } catch(e){}
 
-  let _bannerShown = false;
+  function _showBanner() {
+    if (_bannerShown || _dismissed) return;
+    _bannerShown = true;
+    _banner.style.display = 'flex';
+  }
 
+  function _maybeShowBanner() {
+    if (!_deferredPrompt) return;
+    _showBanner();
+  }
+
+  // Show banner immediately if prompt is ready, OR after scroll, OR after 3s
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     _deferredPrompt = e;
-    // Show banner after scroll once prompt is ready
+    // Try immediately
+    _maybeShowBanner();
+    // Also try after short delay (in case page just loaded)
+    setTimeout(_maybeShowBanner, 3000);
   });
 
-  function _maybeShowBanner() {
-    if (_bannerShown || _dismissed) return;
-    if (window.scrollY > 300 && _deferredPrompt) {
-      _bannerShown = true;
-      _banner.classList.add('show');
-    }
-  }
-  window.addEventListener('scroll', _maybeShowBanner, { passive: true });
-
-  // Also try showing after 4 seconds if user hasn't scrolled enough
-  setTimeout(() => {
-    if (!_bannerShown && !_dismissed && _deferredPrompt) {
-      _bannerShown = true;
-      _banner.classList.add('show');
-    }
-  }, 4000);
+  // Also check on scroll in case event fired before listener was ready
+  window.addEventListener('scroll', () => {
+    if (_deferredPrompt) _maybeShowBanner();
+  }, { passive: true });
 
   _installB.addEventListener('click', () => {
     if (!_deferredPrompt) return;
+    _banner.style.display = 'none';
     _deferredPrompt.prompt();
     _deferredPrompt.userChoice.then(() => {
       _deferredPrompt = null;
-      _banner.classList.remove('show');
     });
   });
 
   _dismissB.addEventListener('click', () => {
-    _banner.classList.remove('show');
+    _banner.style.display = 'none';
     try { localStorage.setItem('pwa_dismissed', '1'); } catch(e){}
   });
 
+  // iOS Safari fallback
   (function(){
     const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
     const isStandalone = window.navigator.standalone === true;
@@ -1380,10 +1357,10 @@
     try { ioDismissed = localStorage.getItem('pwa_dismissed') === '1'; } catch(e){}
     if (isIOS && !isStandalone && !ioDismissed) {
       setTimeout(() => {
-        _banner.classList.add('show');
+        _banner.style.display = 'flex';
         _installB.textContent = 'How?';
         _installB.addEventListener('click', () => {
-          alert('Tap the Share button in Safari, then tap "Add to Home Screen".');
+          alert('Tap the Share button (\u25a1\u2191) in Safari, then tap "Add to Home Screen".');
         }, { once: true });
       }, 4000);
     }
@@ -1397,3 +1374,4 @@
 </script>
 </body>
 </html>
+
