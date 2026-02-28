@@ -28,12 +28,16 @@
     {
       "name": "SIP Calculator",
       "short_name": "Calculator",
-      "url": "/sanjan/#calc"
+      "description": "Open the SIP investment calculator",
+      "url": "/sanjan/#calc",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "WhatsApp Sanjan",
       "short_name": "WhatsApp",
-      "url": "/sanjan/#wa"
+      "description": "Chat with Sanjan on WhatsApp",
+      "url": "/sanjan/#wa",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
     }
   ]
 }
