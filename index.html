@@ -572,7 +572,21 @@
 
 <!-- PWA Install Banner -->
 <div id="installBanner" style="display:none;position:fixed;bottom:100px;left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:440px;z-index:998;background:#181E30;border:1px solid rgba(201,168,76,0.3);border-radius:16px;padding:12px 14px;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.6);">
-  <div style="width:44px;height:44px;flex-shrink:0;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;">₹</div>
+  <div style="width:44px;height:44px;flex-shrink:0;border-radius:10px;overflow:hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="44" height="44">
+      <defs>
+        <linearGradient id="pwaG" x1="0" y1="0" x2="192" y2="192" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#F0D080"/>
+          <stop offset="100%" stop-color="#C9A84C"/>
+        </linearGradient>
+        <clipPath id="pwaC"><rect width="192" height="192" rx="42"/></clipPath>
+      </defs>
+      <rect width="192" height="192" rx="42" fill="#0A0E1A"/>
+      <polygon points="0,192 192,0 192,192" fill="url(#pwaG)" clip-path="url(#pwaC)" opacity="0.15"/>
+      <text x="54" y="108" font-family="Georgia,serif" font-size="88" font-weight="700" fill="#F0D080">S</text>
+      <text x="108" y="152" font-family="Georgia,serif" font-size="60" font-weight="700" fill="#C9A84C" opacity="0.7">J</text>
+    </svg>
+  </div>
   <div style="flex:1;">
     <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:2px;">Add to Home Screen</div>
     <div style="font-size:11px;color:#8A94AA;">Quick access to SIP tools & calculator</div>
@@ -633,35 +647,35 @@
   <h2 class="divider reveal" id="divEF">Your Financial Safety Net</h2>
 
   <div class="ef-card reveal">
-    <div class="ef-eyebrow">🛟 Emergency Fund · Foundation First</div>
-    <div class="ef-hook">Before SIP. Before insurance.<br><span>Build your safety net first.</span></div>
-    <p class="ef-body">
+    <div class="ef-eyebrow" id="efEyebrow">🛟 Emergency Fund · Foundation First</div>
+    <div class="ef-hook" id="efHook">Before SIP. Before insurance.<br><span>Build your safety net first.</span></div>
+    <p class="ef-body" id="efBody">
       Most people skip this step — and pay the price when life doesn't go to plan. A job loss, a hospital bill, an urgent repair — without a buffer, you're forced to <strong>break your investments or take a loan</strong>.<br><br>
       The right amount, parked in the right instrument, can make all the difference. Sanjan will help you figure out exactly how much you need and where to keep it — <strong>free</strong>.
     </p>
     <div class="ef-progress-head">
-      <span class="ef-progress-text">How far along are you?</span>
+      <span class="ef-progress-text" id="efProgressText">How far along are you?</span>
       <span class="ef-progress-val" id="efProgressVal">0 / 6 stages</span>
     </div>
     <div class="ef-bar-track">
       <div class="ef-bar-fill" id="efBarFill" style="width:0%"></div>
     </div>
-    <div class="ef-hint">Tap a stage to mark your progress ↓</div>
+    <div class="ef-hint" id="efHint">Tap a stage to mark your progress ↓</div>
     <div class="ef-stages" id="efStageGrid">
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">1</span><span class="ef-stage-label">Stage</span></div>
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">2</span><span class="ef-stage-label">Stage</span></div>
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">3</span><span class="ef-stage-label">Stage</span></div>
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">4</span><span class="ef-stage-label">Stage</span></div>
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">5</span><span class="ef-stage-label">Stage</span></div>
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">6</span><span class="ef-stage-label">Stage</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">1</span><span class="ef-stage-label" id="efSL1">Stage</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">2</span><span class="ef-stage-label" id="efSL2">Stage</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">3</span><span class="ef-stage-label" id="efSL3">Stage</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">4</span><span class="ef-stage-label" id="efSL4">Stage</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">5</span><span class="ef-stage-label" id="efSL5">Stage</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">6</span><span class="ef-stage-label" id="efSL6">Stage</span></div>
     </div>
     <div class="ef-status" id="efStatus">Tap a stage above to track your progress</div>
     <div class="ef-rule"></div>
     <div class="ef-chips">
-      <span class="ef-chip">Foundation First</span>
-      <span class="ef-chip">Right Instrument</span>
-      <span class="ef-chip">Personalised Amount</span>
-      <span class="ef-chip">Free Guidance</span>
+      <span class="ef-chip" id="efChip1">Foundation First</span>
+      <span class="ef-chip" id="efChip2">Right Instrument</span>
+      <span class="ef-chip" id="efChip3">Personalised Amount</span>
+      <span class="ef-chip" id="efChip4">Free Guidance</span>
     </div>
   </div>
 
@@ -1042,7 +1056,7 @@
       var val=document.getElementById('efProgressVal');
       var status=document.getElementById('efStatus');
       var current=0;
-      var msgs=[
+      var msgs_en=[
         {text:'Tap a stage above to track your progress',cls:''},
         {text:'Stage 1 done — you\'ve made a start 👏',cls:'ef-active'},
         {text:'Stage 2 done — building momentum!',cls:'ef-active'},
@@ -1051,12 +1065,23 @@
         {text:'Stage 5 done — one more to go!',cls:'ef-active'},
         {text:'🎉 Safety net complete! Now let\'s grow your wealth.',cls:'ef-complete'}
       ];
+      var msgs_ml=[
+        {text:'ഒരു stage tap ചെയ്ത് progress track ചെയ്യൂ',cls:''},
+        {text:'Stage 1 പൂർത്തി — നല്ല തുടക്കം! 👏',cls:'ef-active'},
+        {text:'Stage 2 പൂർത്തി — momentum ഉണ്ട്!',cls:'ef-active'},
+        {text:'പകുതി കഴിഞ്ഞു — തുടരൂ 💪',cls:'ef-active'},
+        {text:'Stage 4 പൂർത്തി — ഏതാണ്ട് ആയി!',cls:'ef-active'},
+        {text:'Stage 5 പൂർത്തി — ഒന്ന് കൂടെ!',cls:'ef-active'},
+        {text:'🎉 Safety net complete! ഇനി wealth grow ചെയ്യാം.',cls:'ef-complete'}
+      ];
+      function getMsgs(){ try{return localStorage.getItem('lang')==='ml'?msgs_ml:msgs_en;}catch(e){return msgs_en;} }
       function update(n){
         current=n;
+        var msgs=getMsgs();
         stages.forEach(function(s,i){s.classList.toggle('ef-done',i<n);});
         if(grid){grid.classList.toggle('ef-complete',n===6);}
         if(bar){bar.style.width=(n/6*100)+'%';bar.classList.toggle('ef-complete',n===6);}
-        if(val){val.textContent=n+' / 6 stages';val.classList.toggle('ef-complete',n===6);}
+        if(val){val.textContent=n+' / 6 '+(localStorage.getItem('lang')==='ml'?'ഘട്ടങ്ങൾ':'stages');val.classList.toggle('ef-complete',n===6);}
         if(status){status.textContent=msgs[n].text;status.className='ef-status '+msgs[n].cls;}
       }
       stages.forEach(function(stage,i){
@@ -1349,7 +1374,15 @@
       q11:'Do you offer home visits? What is covered and what does it cost?', a11:'Yes — I offer in-person financial wellness sessions at your home in Thrissur and nearby areas. Physical visit only; not available online or by phone. Sessions cover emergency fund planning (my core speciality), health insurance assessment, and term life insurance review. A one-time fee applies based on your location and complexity. WhatsApp me to discuss and book.',
       q12:'How do I get a free health insurance assessment?', a12:'Simply WhatsApp me for a free conversation. I\'ll assess your current health cover, identify any gaps, and compare plans across all major insurers to find the right cover at the best premium for your family — zero brand bias, no obligation, no spam.',
       q13:'Why do I need an emergency fund before starting a SIP?', a13:'An emergency fund is your financial cushion — it ensures that a job loss, medical bill, or urgent expense never forces you to break your SIP or take a loan. Without it, even a small crisis can undo years of investment discipline. I help you figure out the right amount and where to keep it, completely free.',
-      disclaimer:'Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing.'
+      disclaimer:'Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing.',
+      efEyebrow:'🛟 Emergency Fund · Foundation First',
+      efHook:'Before SIP. Before insurance.<br><span>Build your safety net first.</span>',
+      efBody:'Most people skip this step — and pay the price when life doesn\'t go to plan. A job loss, a hospital bill, an urgent repair — without a buffer, you\'re forced to <strong>break your investments or take a loan</strong>.<br><br>The right amount, parked in the right instrument, can make all the difference. Sanjan will help you figure out exactly how much you need and where to keep it — <strong>free</strong>.',
+      efProgressText:'How far along are you?',
+      efHint:'Tap a stage to mark your progress ↓',
+      efStatus:'Tap a stage above to track your progress',
+      efSL1:'Stage', efSL2:'Stage', efSL3:'Stage', efSL4:'Stage', efSL5:'Stage', efSL6:'Stage',
+      efChip1:'Foundation First', efChip2:'Right Instrument', efChip3:'Personalised Amount', efChip4:'Free Guidance'
     },
     ml: {
       langBtn:'🌐 English', h1:'SIP ലൂടെ നിങ്ങളുടെ സമ്പത്ത് വളർത്തൂ',
@@ -1381,7 +1414,15 @@
       q11:'Home visit ഉണ്ടോ? എന്ത് cover ചെയ്യുന്നു? ചാർജ് എത്ര?', a11:'ഉണ്ട്. Thrissur ലും അടുത്ത പ്രദേശങ്ങളിലും personal financial wellness session നൽകുന്നു — physical visit മാത്രം, online/phone ൽ ലഭ്യമല്ല. Emergency fund planning (എന്റെ USP), health insurance assessment, term plan review എന്നിവ cover ചെയ്യുന്നു. Location, complexity അനുസരിച്ച് one-time fee ഈടാക്കുന്നു. WhatsApp ൽ ബന്ധപ്പെടൂ.',
       q12:'സൗജന്യ ആരോഗ്യ ഇൻഷുറൻസ് assessment എങ്ങനെ ലഭിക്കും?', a12:'എന്നെ WhatsApp ചെയ്യൂ. നിലവിലുള്ള cover പരിശോധിച്ച്, gaps കണ്ടെത്തി, എല്ലാ major insurers ൽ നിന്നും ഏറ്റവും അനുയോജ്യമായ plan കണ്ടെത്തും — brand bias ഇല്ല, obligation ഇല്ല.',
       q13:'SIP തുടങ്ങുന്നതിന് മുമ്പ് emergency fund എന്തുകൊണ്ട് വേണം?', a13:'Emergency fund നിങ്ങളുടെ സാമ്പത്തിക സുരക്ഷാ കവചമാണ്. ജോലി നഷ്ടം, medical bill, അടിയന്തര ചെലവ് — ഇവ SIP break ചെയ്യാനോ loan എടുക്കാനോ നിർബന്ധിതമാക്കില്ല. ശരിയായ തുകയും instrument ഉം കണ്ടെത്താൻ ഞാൻ സഹായിക്കും — സൗജന്യമായി.',
-      disclaimer:'മ്യൂച്വൽ ഫണ്ട് നിക്ഷേപങ്ങൾ വിപണി അപകടസാധ്യതകൾക്ക് വിധേയമാണ്. എല്ലാ scheme രേഖകളും ശ്രദ്ധാപൂർവ്വം വായിക്കുക.'
+      disclaimer:'മ്യൂച്വൽ ഫണ്ട് നിക്ഷേപങ്ങൾ വിപണി അപകടസാധ്യതകൾക്ക് വിധേയമാണ്. എല്ലാ scheme രേഖകളും ശ്രദ്ധാപൂർവ്വം വായിക്കുക.',
+      efEyebrow:'🛟 Emergency Fund · Foundation First',
+      efHook:'SIP ന് മുമ്പ്. Insurance ന് മുമ്പ്.<br><span>ആദ്യം Safety Net ഉണ്ടാക്കൂ.</span>',
+      efBody:'മിക്ക ആളുകളും ഈ ഘട്ടം skip ചെയ്യുന്നു — ജീവിതം unexpected ആകുമ്പോൾ അതിന്റെ വില നൽകേണ്ടിവരുന്നു. ജോലി നഷ്ടം, ആശുപത്രി ബിൽ, അടിയന്തര ആവശ്യം — buffer ഇല്ലെങ്കിൽ <strong>നിക്ഷേപം break ചെയ്യേണ്ടി വരും, loan എടുക്കേണ്ടി വരും</strong>.<br><br>ശരിയായ തുക, ശരിയായ instrument ൽ വച്ചാൽ വലിയ വ്യത്യാസം ഉണ്ടാകും. നിങ്ങൾക്ക് എത്ര വേണം, എവിടെ വയ്ക്കണം എന്ന് Sanjan സൗജന്യമായി പറഞ്ഞുതരും.',
+      efProgressText:'നിങ്ങൾ എവിടെ വരെ എത്തി?',
+      efHint:'Stage tap ചെയ്ത് progress mark ചെയ്യൂ ↓',
+      efStatus:'ഒരു stage tap ചെയ്ത് progress track ചെയ്യൂ',
+      efSL1:'ഘട്ടം', efSL2:'ഘട്ടം', efSL3:'ഘട്ടം', efSL4:'ഘട്ടം', efSL5:'ഘട്ടം', efSL6:'ഘട്ടം',
+      efChip1:'Foundation First', efChip2:'ശരിയായ Instrument', efChip3:'വ്യക്തിഗത തുക', efChip4:'സൗജന്യ ഉപദേശം'
     }
   };
 
