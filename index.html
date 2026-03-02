@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src https://corsproxy.io https://query1.finance.yahoo.com; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src https://corsproxy.io https://query1.finance.yahoo.com https://api.allorigins.win https://api.codetabs.com; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests;">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="Cross-Origin-Resource-Policy" content="same-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanjan – Financial Advisor Thrissur | SIP Calculator, Insurance & Emergency Fund</title>
+<title>SIP Calculator & Financial Advisor in Thrissur | Sanjan Jayadevan – Kerala</title>
 
 <meta name="google-site-verification" content="f762714b40043f1f" />
 
 <!-- Basic SEO -->
 <meta name="description" content="Free SIP calculator, goal planner & health insurance estimator by Sanjan. Registered Financial Advisor, Thrissur, Kerala. Start SIP from ₹100/month. Emergency fund planning, ELSS tax saving & term insurance. Serving clients across Kerala with free online guidance." />
-<meta name="keywords" content="SIP calculator Kerala, SIP calculator Thrissur, health insurance calculator Thrissur, online SIP planner Kerala, goal planner SIP Kerala, SIP advisor Thrissur, financial advisor Kerala, financial advisor Thrissur, SIP investment Kerala, health insurance advisor Thrissur, term insurance Kerala, emergency fund planning Kerala, investment guidance Kerala, Sanjan Thrissur" />
 <meta name="author" content="Sanjan Jayadevan" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://sanjanj.github.io/sanjan/" />
@@ -90,11 +89,11 @@
     {"@type":"Question","name":"Is there a lock-in period for my investments?","acceptedAnswer":{"@type":"Answer","text":"Most mutual funds have no lock-in. You can redeem anytime, though an exit load may apply within 1 year for equity funds. ELSS tax-saving funds have a 3-year lock-in per instalment."}},
     {"@type":"Question","name":"Do you recommend specific insurance brands?","acceptedAnswer":{"@type":"Answer","text":"No. Sanjan is completely unbiased and not tied to any insurer. The goal is to find the right health or term cover at the best premium across all available options."}},
     {"@type":"Question","name":"Do you offer home visits? What is covered and what does it cost?","acceptedAnswer":{"@type":"Answer","text":"Yes. In-person financial wellness sessions are available at your home in Thrissur and nearby areas — physical visit only, not available online or by phone. Sessions cover emergency fund planning, health insurance assessment, and term life insurance review. A one-time fee applies based on location and complexity. Contact Sanjan to discuss and schedule."}},
-    {"@type":"Question","name":"Do you have a free SIP calculator?","acceptedAnswer":{"@type":"Answer","text":"Yes — the SIP calculator and Goal Planner on this page are completely free to use. Enter your monthly amount, years and expected return to see exactly how your wealth grows. For a personalised plan, contact Sanjan."}},
+    {"@type":"Question","name":"Do you have a free SIP calculator?","acceptedAnswer":{"@type":"Answer","text":"Yes — the SIP calculator and Goal Planner on this page are completely free to use. Enter your monthly amount, years and expected return to see exactly how your wealth grows."}},
     {"@type":"Question","name":"How do I estimate how much health insurance I need?","acceptedAnswer":{"@type":"Answer","text":"Use the free Health Cover Estimator on this page — answer 5 simple questions about your family size, age, city and health profile to get a personalised cover recommendation instantly. For a full unbiased assessment, contact Sanjan."}},
-"acceptedAnswer":{"@type":"Answer","text":"Starting SIP without an emergency fund is like building a house on sand. One unexpected expense and years of discipline can collapse in a single month. This step always comes first — contact Sanjan to understand why."}},
-    {"@type":"Question","name":"How much should my emergency fund be?","acceptedAnswer":{"@type":"Answer","text":"It is not the same for everyone. Your job type, number of dependents, and lifestyle all change the number significantly. Most people get this wrong. Contact Sanjan for your exact personalised number."}},
-    {"@type":"Question","name":"Where should I keep my emergency fund?","acceptedAnswer":{"@type":"Answer","text":"Not your regular savings account. There is a smarter option most people overlook — safe, instantly accessible, and slightly growing. Contact Sanjan to find out where."}}
+    {"@type":"Question","name":"Should I start SIP before building an emergency fund?","acceptedAnswer":{"@type":"Answer","text":"Starting SIP without an emergency fund is like building a house on sand. One unexpected expense and years of discipline can collapse in a single month. This step always comes first —"}},
+    {"@type":"Question","name":"How much should my emergency fund be?","acceptedAnswer":{"@type":"Answer","text":"It is not the same for everyone. Your job type, number of dependents, and lifestyle all change the number significantly. Most people get this wrong."}},
+    {"@type":"Question","name":"Where should I keep my emergency fund?","acceptedAnswer":{"@type":"Answer","text":"Not your regular savings account. There is a smarter option most people overlook — safe, instantly accessible, and slightly growing."}}
   ]
 }
 </script>
@@ -201,21 +200,52 @@
   .lang-btn:hover { background: rgba(201,168,76,0.22); }
 
   /* NIFTY TICKER */
+  .nifty-ticker-wrap { display: flex; justify-content: center; margin-bottom: 16px; }
   .nifty-ticker {
-    display: inline-flex; align-items: center; gap: 6px;
+    display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px;
     background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 100px; padding: 5px 12px; margin-bottom: 16px;
-    font-size: 11px; font-weight: 600; letter-spacing: 0.3px;
+    border-radius: 100px; padding: 7px 16px; width: 100%;
     opacity: 0; transition: opacity 0.5s ease;
   }
   .nifty-ticker.loaded { opacity: 1; }
-  .nifty-label { color: var(--muted); font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase; }
-  .nifty-price { color: #fff; font-size: 11px; font-weight: 700; }
-  .nifty-change.up   { color: #26a69a; font-size: 11px; }
-  .nifty-change.down { color: #ef5350; font-size: 11px; }
-  .nifty-dot { width: 6px; height: 6px; border-radius: 50%; background: #26a69a; display: inline-block; animation: blink 1.5s ease infinite; }
-  .nifty-dot.closed  { background: #ef5350; animation: none; }
+  .nifty-ticker-row1 { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .nifty-ticker-row2 { display: flex; align-items: center; justify-content: center; width: 100%; }
+  .nifty-dot { width: 7px; height: 7px; border-radius: 50%; background: #26a69a; display: inline-block; flex-shrink: 0; animation: blink 1.5s ease infinite; }
+  .nifty-dot.closed { background: #ef5350; animation: none; }
+  .nifty-label { color: var(--muted); font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
+  .nifty-price { color: #fff; font-size: 13px; font-weight: 700; }
+  .nifty-change.up   { color: #26a69a; font-size: 12px; font-weight: 600; }
+  .nifty-change.down { color: #ef5350; font-size: 12px; font-weight: 600; }
+  .nifty-datetime { color: var(--muted); font-size: 10px; font-weight: 400; }
   @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+
+  /* ── HCE RESULT CARD ── */
+  .hc-result-card { background: var(--card); border: 1px solid rgba(201,168,76,0.2); border-radius: 20px; padding: 20px; margin-bottom: 16px; }
+  .hcr-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+  .hcr-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .hcr-range { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; background: linear-gradient(135deg,#fff 40%,var(--gold-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .hcr-risk { display:inline-flex; align-items:center; gap:6px; border-radius:100px; padding:5px 12px; font-size:11px; font-weight:700; border:1px solid; white-space:nowrap; margin-top:4px; }
+  .hcr-risk.low { background:rgba(38,166,154,0.1); border-color:rgba(38,166,154,0.35); color:#26a69a; }
+  .hcr-risk.moderate { background:rgba(201,168,76,0.1); border-color:rgba(201,168,76,0.35); color:var(--gold-light); }
+  .hcr-risk.high { background:rgba(239,140,52,0.1); border-color:rgba(239,140,52,0.35); color:#EF8C34; }
+  .hcr-risk.veryhigh { background:rgba(239,83,80,0.1); border-color:rgba(239,83,80,0.35); color:#ef5350; }
+  .hcr-risk-dot { width:6px; height:6px; border-radius:50%; background:currentColor; flex-shrink:0; }
+  .hcr-chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+  .hcr-chip { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:100px; padding:3px 10px; font-size:11px; color:var(--muted); }
+  .hcr-tabs { display:flex; gap:6px; margin-bottom:14px; }
+  .hcr-tab { flex:1; padding:8px; border-radius:10px; font-size:12px; font-weight:600; cursor:pointer; border:1px solid rgba(255,255,255,0.08); color:var(--muted); background:transparent; font-family:'DM Sans',sans-serif; transition:.2s; }
+  .hcr-tab.active { background:rgba(201,168,76,0.15); border-color:rgba(201,168,76,0.4); color:var(--gold-light); }
+  .hcr-panel .why-row { display:flex; gap:10px; margin-bottom:10px; align-items:flex-start; }
+  .hcr-panel .why-icon { font-size:14px; flex-shrink:0; margin-top:1px; }
+  .hcr-panel .why-text { font-size:12px; color:#9AA4BA; line-height:1.5; }
+  .hcr-panel .why-text strong { color:var(--text); display:block; font-size:11px; font-weight:700; letter-spacing:0.3px; margin-bottom:1px; }
+  .hcr-panel .feat-row { display:flex; align-items:flex-start; gap:8px; padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:12px; color:#9AA4BA; line-height:1.4; }
+  .hcr-panel .feat-row:last-child { border-bottom:none; }
+  .hcr-panel .feat-check { width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; flex-shrink:0; margin-top:1px; }
+  .hcr-panel .feat-check.must { background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.4); color:var(--gold-light); }
+  .hcr-panel .feat-check.good { background:rgba(38,166,154,0.12); border:1px solid rgba(38,166,154,0.35); color:#26a69a; }
+  .hcr-panel .must-badge { display:inline-block; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); color:var(--gold-light); font-size:9px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; padding:1px 5px; border-radius:4px; margin-left:5px; }
+  .hcr-cta-btn { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:13px; border-radius:12px; margin-top:16px; background:rgba(37,211,102,0.1); border:1.5px solid rgba(37,211,102,0.35); color:#25D366; font-size:13px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif; }
   .hero { padding: 40px 0 40px; text-align: center; }
   .badge {
     display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
@@ -395,6 +425,7 @@
   .calc-val { color:var(--gold-light); font-size:14px; text-transform:none; letter-spacing:0; font-weight:700; }
   .calc-slider { width:100%; -webkit-appearance:none; appearance:none; height:4px; border-radius:4px; background:rgba(255,255,255,0.1); outline:none; }
   .calc-slider::-webkit-slider-thumb { -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-light)); cursor:pointer; box-shadow:0 2px 8px rgba(201,168,76,0.5); }
+  #ageSlider { width:100%; cursor:pointer; accent-color:#4A90D9; }
   .calc-result { background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04)); border:1px solid rgba(201,168,76,0.25); border-radius:16px; padding:16px 14px; margin-top:16px; }
   .calc-result-top { display:flex; align-items:center; gap:14px; margin-bottom:12px; }
   .calc-result-left { flex:1; }
@@ -433,20 +464,6 @@
   .wa-share-btn:active { transform: scale(0.98); }
 
   /* SCROLL TO TOP */
-  .scroll-top {
-    position: fixed; bottom: 24px; left: 20px; z-index: 999;
-    width: 44px; height: 44px; border-radius: 50%;
-    background: rgba(201,168,76,0.15);
-    border: 1.5px solid rgba(201,168,76,0.4);
-    color: var(--gold-light); font-size: 20px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; text-decoration: none;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.3s, transform 0.2s;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-  }
-  .scroll-top.visible { opacity: 1; pointer-events: all; }
-  .scroll-top:hover { transform: translateY(-3px); background: rgba(201,168,76,0.25); }
 
   /* FOOTER LOCATION */
   .footer-location { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
@@ -581,8 +598,7 @@
   .stat-icon { font-size:20px; display:block; margin-bottom:6px; }
 
   @media (max-width: 360px) {
-    .scroll-top { bottom: 90px; }
-  }
+    }
 
   /* ── KERALA SERVING SECTION ── */
   .kerala-section { background:var(--card); border:1px solid rgba(255,255,255,0.07); border-radius:18px; padding:20px; margin-bottom:20px; text-align:center; }
@@ -776,7 +792,6 @@
 <div class="progress-bar" id="progressBar"></div>
 
 <!-- Scroll to Top -->
-<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
 
 <!-- PWA Install Banner -->
 <div id="installBanner" style="display:none;position:fixed;bottom:100px;left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:440px;z-index:998;background:#181E30;border:1px solid rgba(201,168,76,0.3);border-radius:16px;padding:12px 14px;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.6);">
@@ -833,11 +848,17 @@
 
   <div class="hero">
     <div style="background:var(--card);border:1px solid rgba(201,168,76,0.15);border-radius:24px;padding:26px 18px;">
-      <div class="nifty-ticker" id="niftyTicker">
-        <span class="nifty-dot" id="niftyDot"></span>
-        <span class="nifty-label">NIFTY 50 &nbsp;<span id="niftyPrice" style="font-weight:700;"></span></span>
-        <span class="nifty-change" id="niftyChange" style="color:var(--muted);">Loading...</span>
-      </div>
+      <div class="nifty-ticker-wrap"><div class="nifty-ticker" id="niftyTicker">
+        <div class="nifty-ticker-row1">
+          <span class="nifty-dot" id="niftyDot"></span>
+          <span class="nifty-label">NIFTY 50</span>
+          <span class="nifty-price" id="niftyPrice"></span>
+          <span class="nifty-change" id="niftyChange"></span>
+        </div>
+        <div class="nifty-ticker-row2">
+          <span class="nifty-datetime" id="niftyDatetime"></span>
+        </div>
+      </div></div>
       <div class="badge hero-animate">✦ AMFI Registered MFD · ARN-321342 ✦</div>
       <h1 id="h1" class="hero-animate">Grow Your Wealth With Smart SIP</h1>
       <p class="hero-sub hero-animate" id="heroSub">Don't know where to invest? Start with just <span>₹100/month</span>. Build wealth, protect your family & secure your future — guided personally by <span>Sanjan</span>.</p>
@@ -955,12 +976,12 @@
     </div>
     <div class="ef-hint" id="efHint">Tap a stage to mark your progress ↓</div>
     <div class="ef-stages" id="efStageGrid">
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">1</span><span class="ef-stage-label" id="efSL1">Stage</span></div>
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">2</span><span class="ef-stage-label" id="efSL2">Stage</span></div>
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">3</span><span class="ef-stage-label" id="efSL3">Stage</span></div>
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">4</span><span class="ef-stage-label" id="efSL4">Stage</span></div>
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">5</span><span class="ef-stage-label" id="efSL5">Stage</span></div>
-      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">6</span><span class="ef-stage-label" id="efSL6">Stage</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">1</span><span class="ef-stage-label" id="efSL1">Zero</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">2</span><span class="ef-stage-label" id="efSL2">Starter</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">3</span><span class="ef-stage-label" id="efSL3">Buffer</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">4</span><span class="ef-stage-label" id="efSL4">Stable</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">5</span><span class="ef-stage-label" id="efSL5">Strong</span></div>
+      <div class="ef-stage"><span class="ef-stage-check">✓</span><span class="ef-stage-num">6</span><span class="ef-stage-label" id="efSL6">Secure</span></div>
     </div>
     <div class="ef-status" id="efStatus">Tap a stage above to track your progress</div>
     <div class="ef-rule"></div>
@@ -1087,16 +1108,16 @@
     <div class="q-sub">Premiums and coverage needs rise with age — older members need higher cover.</div>
     <div class="hc-slider-wrap">
       <div class="hc-slider-header">
-        <span class="hc-slider-val" id="ageDisplay">35</span>
+        <span class="hc-slider-val" id="ageDisplay">18</span>
         <span class="hc-slider-unit">years old</span>
       </div>
-      <input type="range" id="ageSlider" min="18" max="75" value="35">
+      <input type="range" id="ageSlider" min="18" max="70" value="18">
       <div class="hc-slider-ticks">
         <span class="hc-slider-tick">18</span>
         <span class="hc-slider-tick">30</span>
         <span class="hc-slider-tick">45</span>
         <span class="hc-slider-tick">60</span>
-        <span class="hc-slider-tick">75</span>
+        <span class="hc-slider-tick">70</span>
       </div>
     </div>
     <div class="nav-row">
@@ -1237,62 +1258,47 @@
 
   <!-- ── RESULT ── -->
   <div class="result-wrap hidden" id="resultSection">
+    <div class="hc-result-card">
 
-    <div class="result-hero">
-      <div class="result-eyebrow">✦ Your Recommended Coverage ✦</div>
-      <div class="result-amount" id="rAmount">₹10L</div>
-      <div class="result-plan" id="rPlan">Individual Plan</div>
-
-      <!-- Risk meter -->
-      <div class="risk-meter">
-        <div class="risk-label-row">
-          <span class="risk-label">Risk Level</span>
-          <span class="risk-val" id="rRiskLabel">Moderate</span>
+      <!-- Top row: range + risk -->
+      <div class="hcr-top">
+        <div>
+          <div class="hcr-eyebrow">Recommended Cover</div>
+          <div class="hcr-range" id="rRange">₹10L – ₹15L</div>
         </div>
-        <div class="risk-track">
-          <div class="risk-fill" id="rRiskFill" style="width:50%;"></div>
-        </div>
+        <div class="hcr-risk" id="rRiskPill"><span class="hcr-risk-dot" id="rRiskDot"></span><span id="rRiskLabel">Moderate</span></div>
       </div>
 
-      <!-- Why -->
-      <div class="why-box" id="rWhy"></div>
+      <!-- Profile chips -->
+      <div class="hcr-chips" id="rProfileChips"></div>
+
+      <!-- Tabs -->
+      <div class="hcr-tabs">
+        <button class="hcr-tab active" id="hcrTab1" onclick="hcrSwitch(1)">📍 Why this range</button>
+        <button class="hcr-tab" id="hcrTab2" onclick="hcrSwitch(2)">✅ What to look for</button>
+      </div>
+
+      <!-- Tab 1: Why -->
+      <div id="hcrPanel1" class="hcr-panel">
+        <div id="rWhy"></div>
+      </div>
+
+      <!-- Tab 2: Features -->
+      <div id="hcrPanel2" class="hcr-panel" style="display:none;">
+        <div id="rFeatures"></div>
+      </div>
+
+      <!-- CTA -->
+      <button id="rWaBtn" class="hcr-cta-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32" fill="#25D366"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.49 2.031 7.807L0 32l8.418-2.006A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.784-1.858l-.487-.29-5.002 1.192 1.27-4.87-.318-.5A13.24 13.24 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.87c-.398-.199-2.354-1.162-2.719-1.295-.365-.133-.631-.199-.897.199-.266.398-1.03 1.295-1.263 1.561-.232.266-.465.299-.863.1-.398-.199-1.681-.62-3.202-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.18-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.673-.897-.686l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.396 1.362-1.396 3.325s1.429 3.856 1.628 4.122c.199.266 2.813 4.296 6.815 6.027.952.411 1.695.657 2.274.841.955.304 1.825.261 2.512.158.766-.114 2.354-.962 2.686-1.891.332-.929.332-1.727.232-1.891-.099-.166-.365-.266-.763-.465z"/></svg>
+        Get Free Assessment from Sanjan
+      </button>
+      <div class="wa-note">Free · No obligation · No spam · Replies within 1 hour</div>
+
     </div>
-
-    <!-- Breakdown -->
-    <div class="breakdown-grid">
-      <div class="breakdown-item">
-        <div class="breakdown-val" id="rBase">₹10L</div>
-        <div class="breakdown-lbl">Base Cover</div>
-      </div>
-      <div class="breakdown-item">
-        <div class="breakdown-val" id="rTopup">₹0</div>
-        <div class="breakdown-lbl">Super Top-up</div>
-      </div>
-      <div class="breakdown-item">
-        <div class="breakdown-val" id="rRoomRent">Single AC</div>
-        <div class="breakdown-lbl">Room Category</div>
-      </div>
-      <div class="breakdown-item">
-        <div class="breakdown-val" id="rRestore">Yes</div>
-        <div class="breakdown-lbl">Restore Benefit</div>
-      </div>
-    </div>
-
-    <!-- Key features to look for -->
-    <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:16px;padding:18px 16px;margin-bottom:16px;">
-      <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;">Features to prioritise in your plan</div>
-      <div id="rFeatures"></div>
-    </div>
-
-    <button id="rWaBtn" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px 20px;background:rgba(37,211,102,0.12);border:1.5px solid rgba(37,211,102,0.4);color:#25D366;font-weight:700;font-size:14px;border-radius:14px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s;margin-bottom:10px;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32" fill="#25D366"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.49 2.031 7.807L0 32l8.418-2.006A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.784-1.858l-.487-.29-5.002 1.192 1.27-4.87-.318-.5A13.24 13.24 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.87c-.398-.199-2.354-1.162-2.719-1.295-.365-.133-.631-.199-.897.199-.266.398-1.03 1.295-1.263 1.561-.232.266-.465.299-.863.1-.398-.199-1.681-.62-3.202-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.18-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.673-.897-.686l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.396 1.362-1.396 3.325s1.429 3.856 1.628 4.122c.199.266 2.813 4.296 6.815 6.027.952.411 1.695.657 2.274.841.955.304 1.825.261 2.512.158.766-.114 2.354-.962 2.686-1.891.332-.929.332-1.727.232-1.891-.099-.166-.365-.266-.763-.465z"/></svg>
-      WhatsApp Sanjan — Get My Free Assessment
-    </button>
-    <div class="wa-note">Free · No obligation · No spam · Replies within 1 hour</div>
 
     <button class="recalc-btn" id="recalcBtn">↩ Recalculate with different answers</button>
-
-    <div class="disclaimer">⚠️ This tool provides an educational estimate only. Actual coverage requirements depend on your specific medical history, policy terms, and insurer underwriting. Please consult Sanjan for a personalised assessment before purchasing any health insurance plan.</div>
+    <div class="disclaimer">⚠️ Educational estimate only. Consult Sanjan for a personalised assessment before purchasing any plan.</div>
   </div>
   </div>
 
@@ -1437,9 +1443,9 @@
   <h2 class="divider" id="divFaq">Frequently Asked Questions About SIP & Financial Planning <span class="faq-badge">18 Answered</span></h2>
   <div id="faqSection">
     <div class="faq-category">🛟 Emergency Fund</div>
-    <div class="faq-item"><button class="faq-q" aria-expanded="false"><span id="qef1">Why do I need an emergency fund before starting a SIP?</span><span class="arrow">+</span></button><div class="faq-a"><span id="aef1">Starting SIP without an emergency fund is like building a house on sand. One unexpected expense and years of discipline can collapse in a single month. This step always comes first — contact Sanjan to understand why.</span></div></div>
-    <div class="faq-item"><button class="faq-q" aria-expanded="false"><span id="qef2">How much should my emergency fund be?</span><span class="arrow">+</span></button><div class="faq-a"><span id="aef2">It is not the same for everyone. Your job type, number of dependents, and lifestyle all change the number significantly. Most people get this wrong. Contact Sanjan for your exact personalised number.</span></div></div>
-    <div class="faq-item"><button class="faq-q" aria-expanded="false"><span id="qef3">Where should I keep my emergency fund?</span><span class="arrow">+</span></button><div class="faq-a"><span id="aef3">Not your regular savings account. There is a smarter option most people overlook — safe, instantly accessible, and slightly growing. Contact Sanjan to find out where.</span></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false"><span id="qef1">Why do I need an emergency fund before starting a SIP?</span><span class="arrow">+</span></button><div class="faq-a"><span id="aef1">Starting SIP without an emergency fund is like building a house on sand. One unexpected expense and years of discipline can collapse in a single month. This step always comes first —</span></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false"><span id="qef2">How much should my emergency fund be?</span><span class="arrow">+</span></button><div class="faq-a"><span id="aef2">It is not the same for everyone. Your job type, number of dependents, and lifestyle all change the number significantly. Most people get this wrong.</span></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false"><span id="qef3">Where should I keep my emergency fund?</span><span class="arrow">+</span></button><div class="faq-a"><span id="aef3">Not your regular savings account. There is a smarter option most people overlook — safe, instantly accessible, and slightly growing.</span></div></div>
     <div class="faq-category">🛡️ Insurance</div>
     <div class="faq-item"><button class="faq-q" aria-expanded="false"><span id="q10">Do you recommend specific insurance brands?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a10">No. I am completely unbiased and not tied to any specific insurer. My job is to understand your family's needs and find the right health or term cover at the best premium — across all available options. You get honest advice, not a sales pitch for a particular brand.</span></div></div>
     <div class="faq-item"><button class="faq-q" aria-expanded="false"><span id="q12">How do I get a free health insurance assessment?</span><span class="arrow">+</span></button><div class="faq-a"><span id="a12">Simply contact Sanjan for a free conversation. He will assess your current health cover, identify any gaps, and compare plans across all major insurers to find the right cover at the best premium for your family — zero brand bias, no obligation, no spam.</span></div></div>
@@ -1974,53 +1980,91 @@
 
   // ── NIFTY 50 LIVE PRICE ───────────────────────────────
   async function fetchNifty() {
-    const isWeekend = [0, 6].includes(new Date().getDay());
+    const day = new Date().getDay(); // 0=Sun,1=Mon,...,5=Fri,6=Sat
+    const isWeekend = [0, 6].includes(day);
     const ticker = document.getElementById('niftyTicker');
     const priceEl = document.getElementById('niftyPrice');
     const changeEl = document.getElementById('niftyChange');
     const dot = document.getElementById('niftyDot');
+    const datetimeEl = document.getElementById('niftyDatetime');
 
-    function renderNifty(price, pct, isUp, marketOpen) {
+    function formatISTDatetime() {
+      const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+      const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      const dayName = days[now.getDay()], d = now.getDate(), m = months[now.getMonth()];
+      let h = now.getHours(), min = String(now.getMinutes()).padStart(2,'0');
+      const sec = String(now.getSeconds()).padStart(2,'0');
+      const ampm = h >= 12 ? 'pm' : 'am';
+      h = h % 12 || 12;
+      return dayName + ', ' + d + ' ' + m + ', ' + h + ':' + min + ':' + sec + ' ' + ampm + ' IST';
+    }
+
+    function renderNifty(price, pct, isUp, marketOpen, pts) {
       if (priceEl) priceEl.textContent = price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
-      const nextOpen = isWeekend ? 'Mon' : 'tomorrow';
-      if (marketOpen) {
-        if (changeEl) {
-          changeEl.textContent = (isUp ? '▲' : '▼') + ' ' + Math.abs(pct).toFixed(2) + '%';
-          changeEl.className = 'nifty-change ' + (isUp ? 'up' : 'down');
-          changeEl.style.color = '';
-        }
-        if (dot) { dot.className = 'nifty-dot'; dot.title = 'Market Open'; }
-      } else {
-        if (changeEl) {
-          changeEl.textContent = (isUp ? '▲' : '▼') + ' ' + Math.abs(pct).toFixed(2) + '% · Closed, opens ' + nextOpen;
-          changeEl.className = 'nifty-change ' + (isUp ? 'up' : 'down');
-          changeEl.style.color = '';
-        }
-        if (dot) { dot.className = 'nifty-dot closed'; dot.title = 'Market Closed'; }
+      const sign = isUp ? '+' : '-';
+      const arrow = isUp ? '↑' : '↓';
+      const ptsStr = pts != null ? pts.toLocaleString('en-IN', { maximumFractionDigits: 2 }) : Math.abs(pct).toFixed(2) + '%';
+      const changeStr = sign + ptsStr + ' (' + Math.abs(pct).toFixed(2) + '%) ' + arrow;
+      if (changeEl) {
+        changeEl.textContent = changeStr;
+        changeEl.className = 'nifty-change ' + (isUp ? 'up' : 'down');
+        changeEl.style.color = '';
       }
+      if (dot) {
+        dot.className = 'nifty-dot' + (marketOpen ? '' : ' closed');
+        dot.title = marketOpen ? 'Market Open' : 'Market Closed';
+      }
+      if (datetimeEl) datetimeEl.textContent = formatISTDatetime();
       if (ticker) ticker.classList.add('loaded');
     }
 
     try {
-      const proxy = 'https://corsproxy.io/?';
-      const url = 'https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=1d&range=5d';
-      const res = await fetch(proxy + encodeURIComponent(url));
-      const data = await res.json();
+      const yahooUrl = 'https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=1d&range=5d';
+      const proxies = [
+        'https://corsproxy.io/?' + encodeURIComponent(yahooUrl),
+        'https://api.allorigins.win/raw?url=' + encodeURIComponent(yahooUrl),
+        'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(yahooUrl)
+      ];
+
+      let data = null;
+      for (const proxyUrl of proxies) {
+        try {
+          const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(8000) });
+          if (!res.ok) continue;
+          const json = await res.json();
+          if (json?.chart?.result?.[0]) { data = json; break; }
+          // allorigins wraps in {contents}
+          if (json?.contents) {
+            const inner = JSON.parse(json.contents);
+            if (inner?.chart?.result?.[0]) { data = inner; break; }
+          }
+        } catch(pe) { continue; }
+      }
+      if (!data) throw new Error('All proxies failed');
+
       const result = data?.chart?.result?.[0];
       if (!result) throw new Error('No data');
       const meta = result.meta;
       const price = meta.regularMarketPrice;
-      const prev  = meta.previousClose;
-      const pct   = ((price - prev) / prev * 100);
+      const prev  = meta.chartPreviousClose || meta.previousClose;
+      const pts   = (prev && prev !== 0) ? Math.abs(price - prev) : null;
+      const pct   = (prev && prev !== 0) ? ((price - prev) / prev * 100) : 0;
       const isUp  = price >= prev;
-      const marketOpen = !isWeekend && meta.marketState === 'REGULAR';
+      // Use IST time as reliable fallback — NSE open Mon–Fri 9:15am–3:30pm IST
+      const nowIST = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+      const istHHMM = nowIST.getHours() * 100 + nowIST.getMinutes();
+      const istDay = nowIST.getDay();
+      const istWeekday = istDay >= 1 && istDay <= 5;
+      const istMarketHours = istHHMM >= 915 && istHHMM <= 1530;
+      const marketOpen = istWeekday && istMarketHours;
 
       // ✅ Cache successful fetch in localStorage
       try {
-        localStorage.setItem('nifty_cache', JSON.stringify({ price, pct, isUp, ts: Date.now() }));
+        localStorage.setItem('nifty_cache', JSON.stringify({ price, pct, pts, isUp, ts: Date.now() }));
       } catch(e) {}
 
-      renderNifty(price, pct, isUp, marketOpen);
+      renderNifty(price, pct, isUp, marketOpen, pts);
 
     } catch(e) {
       // API failed — try to show last cached value
@@ -2031,10 +2075,14 @@
           const ageLabel = ageHours < 24 ? 'Last close' : ageHours < 72 ? 'Fri close' : 'Last known';
           if (priceEl) priceEl.textContent = cached.price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
           if (changeEl) {
-            changeEl.textContent = (cached.isUp ? '▲' : '▼') + ' ' + Math.abs(cached.pct).toFixed(2) + '% · ' + ageLabel;
+            const sign = cached.isUp ? '+' : '-';
+            const arrow = cached.isUp ? '↑' : '↓';
+            const ptsStr = cached.pts != null ? cached.pts.toLocaleString('en-IN', { maximumFractionDigits: 2 }) : Math.abs(cached.pct).toFixed(2) + '%';
+            changeEl.textContent = sign + ptsStr + ' (' + Math.abs(cached.pct).toFixed(2) + '%) ' + arrow;
             changeEl.className = 'nifty-change ' + (cached.isUp ? 'up' : 'down');
             changeEl.style.color = '';
           }
+          if (datetimeEl) datetimeEl.textContent = ageLabel;
           if (dot) { dot.className = 'nifty-dot closed'; dot.title = 'Showing cached data'; }
           if (ticker) ticker.classList.add('loaded');
           return;
@@ -2064,6 +2112,25 @@
     }
   });
   fetchNifty();
+
+  // Live clock — update datetime every second
+  (function() {
+    function tickClock() {
+      const el = document.getElementById('niftyDatetime');
+      if (el && el.textContent && el.textContent.includes('IST')) {
+        const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+        const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        const dayName = days[now.getDay()], d = now.getDate(), m = months[now.getMonth()];
+        let h = now.getHours(), min = String(now.getMinutes()).padStart(2,'0');
+        const sec = String(now.getSeconds()).padStart(2,'0');
+        const ampm = h >= 12 ? 'pm' : 'am';
+        h = h % 12 || 12;
+        el.textContent = dayName + ', ' + d + ' ' + m + ', ' + h + ':' + min + ':' + sec + ' ' + ampm + ' IST';
+      }
+    }
+    setInterval(tickClock, 1000);
+  })();
 
   // ── SCROLL REVEAL ─────────────────────────────────────
   const revealObserver = new IntersectionObserver((entries) => {
@@ -2116,8 +2183,6 @@
 
   // ── PROGRESS BAR (passive) ────────────────────────────
   window.addEventListener('scroll', () => {
-    const btn = document.getElementById('scrollTop');
-    btn.classList.toggle('visible', window.scrollY > 300);
     const docH = document.documentElement.scrollHeight - window.innerHeight;
     const pct = (window.scrollY / docH) * 100;
     document.getElementById('progressBar').style.width = pct + '%';
@@ -2218,9 +2283,6 @@
   }
 
 
-  // scrollTop
-  var _scrollBtn = document.getElementById('scrollTop');
-  if (_scrollBtn) _scrollBtn.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
 
   // language toggle
   var _langBtn = document.getElementById('langBtn');
@@ -2324,14 +2386,9 @@ var ageSlider = document.getElementById('ageSlider');
 ageSlider.addEventListener('input', function() {
   state.age = parseInt(this.value);
   document.getElementById('ageDisplay').textContent = state.age;
-  var pct = (state.age - 18) / (75 - 18) * 100;
-  this.style.background = 'linear-gradient(90deg, var(--gold) ' + pct + '%, rgba(255,255,255,0.08) ' + pct + '%)';
+  // no custom gradient — using native blue
 });
-// Init slider fill
-(function() {
-  var pct = (35 - 18) / (75 - 18) * 100;
-  ageSlider.style.background = 'linear-gradient(90deg, var(--gold) ' + pct + '%, rgba(255,255,255,0.08) ' + pct + '%)';
-})();
+
 
 document.getElementById('back1').addEventListener('click', function() { showStep(0); });
 document.getElementById('next1').addEventListener('click', function() { showStep(2); });
@@ -2379,14 +2436,14 @@ document.getElementById('next4').addEventListener('click', function() {
 // ── RECALCULATE ───────────────────────────────────────
 document.getElementById('recalcBtn').addEventListener('click', function() {
   // Reset state
-  state = { members: null, age: 35, city: null, activity: null, smoker: null, condition: null, income: null };
+  state = { members: null, age: 18, city: null, activity: null, smoker: null, condition: null, income: null };
   // Reset all chips
   document.querySelectorAll('.chip, .toggle-chip').forEach(function(c) { c.classList.remove('selected'); });
   // Reset slider
-  ageSlider.value = 35;
-  document.getElementById('ageDisplay').textContent = 35;
-  var pct = (35 - 18) / (75 - 18) * 100;
-  ageSlider.style.background = 'linear-gradient(90deg, var(--gold) ' + pct + '%, rgba(255,255,255,0.08) ' + pct + '%)';
+  ageSlider.value = 18;
+  document.getElementById('ageDisplay').textContent = 18;
+  var pct = 0;
+
   // Reset buttons
   document.getElementById('next0').disabled = true;
   document.getElementById('next2').disabled = true;
@@ -2401,135 +2458,148 @@ function fmtCover(l) {
   return '₹' + l + 'L';
 }
 
+function hcrSwitch(tab) {
+  document.getElementById('hcrTab1').classList.toggle('active', tab === 1);
+  document.getElementById('hcrTab2').classList.toggle('active', tab === 2);
+  document.getElementById('hcrPanel1').style.display = tab === 1 ? 'block' : 'none';
+  document.getElementById('hcrPanel2').style.display = tab === 2 ? 'block' : 'none';
+}
+
 function calculate() {
   var m = state.members, age = state.age, city = state.city;
   var activity = state.activity, smoker = state.smoker === 'yes';
   var condition = state.condition, income = state.income;
 
-  // ── BASE COVER by city (in lakhs) ──
-  var base = { rural: 5, semi: 7, urban: 10, metro: 15 }[city] || 7;
+  // ── BASE COVER by city (min ₹10L everywhere) ──
+  var base = { rural: 10, semi: 10, urban: 15, metro: 20 }[city] || 10;
 
-  // ── MEMBER MULTIPLIER ──
-  var memberMult = {
-    'self': 1,
-    'self+spouse': 1.4,
-    'self+spouse+1child': 1.6,
-    'self+spouse+2children': 1.8,
-    'self+spouse+children+parents': 2.5,
-    'parents': 2.0
-  }[m] || 1;
-  base *= memberMult;
-
-  // ── AGE MULTIPLIER ──
-  if (age >= 65) base *= 2.2;
-  else if (age >= 55) base *= 1.8;
-  else if (age >= 45) base *= 1.4;
-  else if (age >= 35) base *= 1.1;
-
-  // ── HEALTH RISK ──
+  // ── ADDITIVE FACTORS (in lakhs) ──
   var riskScore = 0;
-  if (activity === 'sedentary') { base *= 1.2; riskScore += 2; }
-  if (activity === 'moderate') { riskScore += 1; }
-  if (smoker) { base *= 1.3; riskScore += 3; }
-  if (condition === 'bp') { base *= 1.25; riskScore += 2; }
-  if (condition === 'heart') { base *= 1.5; riskScore += 4; }
-  if (condition === 'other') { base *= 1.3; riskScore += 2; }
+
+  // Family size
+  var familyAdd = { 'self': 0, 'self+spouse': 5, 'self+spouse+1child': 5, 'self+spouse+2children': 10, 'self+spouse+children+parents': 15, 'parents': 15 }[m] || 0;
+  base += familyAdd;
+
+  // Age
+  if (age >= 60) { base += 15; riskScore += 4; }
+  else if (age >= 50) { base += 10; riskScore += 3; }
+  else if (age >= 40) { base += 5; riskScore += 2; }
+  else if (age >= 30) { riskScore += 1; }
+
+  // Lifestyle
+  if (activity === 'sedentary') { base += 5; riskScore += 2; }
+  else if (activity === 'moderate') { riskScore += 1; }
+
+  // Smoker
+  if (smoker) { base += 5; riskScore += 3; }
+
+  // Pre-existing
+  if (condition === 'bp') { base += 5; riskScore += 2; }
+  else if (condition === 'heart') { base += 15; riskScore += 4; }
+  else if (condition === 'other') { base += 10; riskScore += 2; }
+
+  // Parents
   if (m === 'parents' || m === 'self+spouse+children+parents') riskScore += 2;
 
-  // ── INCOME AFFORDABILITY CHECK ──
-  // Don't go below what's meaningful, nudge up for higher income
-  var incomeBoost = { below3: 0, '3to6': 0, '6to12': 5, above12: 10 }[income] || 0;
-  base += incomeBoost;
+  // ── RANGE: min = base, max = base + 5 or 10 depending on risk ──
+  var rangeGap = riskScore >= 4 ? 10 : 5;
+  var coverMin = Math.max(10, Math.ceil(base / 5) * 5);
+  var coverMax = coverMin + rangeGap;
 
-  // Round to nearest 5L, min 5L, max 200L
-  var cover = Math.max(5, Math.min(200, Math.ceil(base / 5) * 5));
+  // Income: nudge up max for higher earners
+  if (income === 'above12') coverMax += 5;
+  else if (income === '6to12') coverMax += 5;
 
-  // ── TOP-UP RECOMMENDATION ──
-  // For higher covers, recommend splitting into base + super top-up (more cost-efficient)
-  var baseAmt = cover, topup = 0;
-  if (cover >= 30) {
-    baseAmt = cover >= 50 ? 20 : 15;
-    topup = cover - baseAmt;
-  }
+  // Cap at 1Cr
+  coverMin = Math.min(coverMin, 100);
+  coverMax = Math.min(coverMax, 100);
 
-  // ── RISK LABEL + COLOR ──
-  var riskPct = Math.min(100, riskScore * 12);
-  var riskLabel, riskColor;
-  if (riskScore <= 1) { riskLabel = 'Low'; riskColor = 'linear-gradient(90deg,#26a69a,#80CBC4)'; }
-  else if (riskScore <= 3) { riskLabel = 'Moderate'; riskColor = 'linear-gradient(90deg,#C9A84C,#F0D080)'; }
-  else if (riskScore <= 5) { riskLabel = 'High'; riskColor = 'linear-gradient(90deg,#EF8C34,#FFAB40)'; }
-  else { riskLabel = 'Very High'; riskColor = 'linear-gradient(90deg,#EF5350,#FF8A80)'; }
+  // ── RISK LABEL ──
+  var riskLabel, riskClass;
+  if (riskScore <= 2) { riskLabel = 'Low Risk'; riskClass = 'low'; }
+  else if (riskScore <= 4) { riskLabel = 'Moderate Risk'; riskClass = 'moderate'; }
+  else if (riskScore <= 7) { riskLabel = 'High Risk'; riskClass = 'high'; }
+  else { riskLabel = 'Very High Risk'; riskClass = 'veryhigh'; }
 
   // ── PLAN TYPE ──
   var planType = m === 'self' ? 'Individual Plan' :
-                 m === 'parents' ? 'Senior Citizen Plan (Floater)' :
+                 m === 'parents' ? 'Senior Citizen Plan' :
                  'Family Floater Plan';
 
-  // ── ROOM RENT ──
-  var roomRent = city === 'metro' ? 'No Limit / Any Room' :
-                 city === 'urban' ? 'Single AC Room' : 'Semi-Private Room';
+  // ── CITY / MEMBER DESCRIPTIONS ──
+  var cityDesc = { rural: 'Rural', semi: 'Semi-Urban', urban: 'Urban', metro: 'Metro' }[city];
+  var cityRoomCost = { rural: '₹1,500–2,500', semi: '₹2,500–4,000', urban: '₹4,000–6,000', metro: '₹8,000–12,000' }[city];
+  var memberDesc = { 'self': 'Individual', 'self+spouse': 'Self + Spouse', 'self+spouse+1child': 'Family of 3', 'self+spouse+2children': 'Family of 4', 'self+spouse+children+parents': 'Joint Family', 'parents': 'Senior Parents' }[m];
 
-  // ── RESTORE BENEFIT ──
-  var restore = cover >= 10 ? 'Yes' : 'Recommended';
-
-  // ── WHY REASONING ──
+  // ── WHY ROWS ──
   var whyRows = [];
-  var cityDesc = { rural: 'rural area', semi: 'semi-urban city', urban: 'urban city', metro: 'metro city' }[city];
-  var memberDesc = {
-    'self': 'individual',
-    'self+spouse': '2-member couple',
-    'self+spouse+1child': '3-member family',
-    'self+spouse+2children': '4-member family',
-    'self+spouse+children+parents': 'joint family with parents',
-    'parents': 'senior parents'
-  }[m];
+  whyRows.push({ icon: '📍', strong: 'City cost of care', text: 'Single AC room in a ' + cityDesc.toLowerCase() + ' private hospital costs ' + cityRoomCost + '/night. A 7-day stay with surgery can easily cross ₹3–5L — setting your floor at ' + fmtCover(coverMin) + '.' });
 
-  whyRows.push({ icon: '📍', strong: 'City cost of care', text: 'Private hospital costs in a ' + cityDesc + ' set the base at ' + fmtCover({ rural:5,semi:7,urban:10,metro:15 }[city]) + ' for adequate coverage.' });
+  if (familyAdd > 0) whyRows.push({ icon: '👨‍👩‍👦', strong: 'Family size', text: memberDesc + ' on a floater shares one pool. Cover is increased so a single claim does not wipe out the entire sum insured.' });
 
-  if (age >= 45) whyRows.push({ icon: '📅', strong: 'Age factor', text: 'At ' + age + ', the likelihood of hospitalisation and critical illness rises. This adds a significant buffer to your cover.' });
+  if (age >= 40) whyRows.push({ icon: '📅', strong: 'Age factor', text: 'At ' + age + ', hospitalisation and critical illness risk rises significantly. The upper range of ' + fmtCover(coverMax) + ' accounts for this.' });
 
-  if (m !== 'self') whyRows.push({ icon: '👨‍👩‍👦', strong: 'Family coverage', text: 'A ' + memberDesc + ' on a floater plan shares the cover pool. Total cover is increased to ensure no single claim wipes out the full sum insured.' });
+  if (activity === 'sedentary') whyRows.push({ icon: '🛋️', strong: 'Sedentary lifestyle', text: 'Increases long-term risk of lifestyle diseases. Added ₹5L buffer to your range.' });
 
-  if (condition !== 'none') whyRows.push({ icon: '🏥', strong: 'Pre-existing condition', text: 'Existing conditions typically lead to higher claim frequencies and costs. Higher cover protects against large critical care bills.' });
+  if (smoker) whyRows.push({ icon: '🚬', strong: 'Smoker', text: 'Tobacco use significantly raises hospitalisation risk and can lead to critical illness claims. Cover is raised accordingly.' });
 
-  if (smoker) whyRows.push({ icon: '🚬', strong: 'Smoker surcharge', text: 'Tobacco use significantly increases long-term hospitalisation risk. Cover is raised accordingly.' });
+  if (condition !== 'none') {
+    var condDesc = { bp: 'BP / Diabetes', heart: 'Heart / Cardiac condition', other: 'Chronic pre-existing condition' }[condition];
+    whyRows.push({ icon: '🏥', strong: condDesc, text: 'Pre-existing conditions increase claim frequency and cost. Higher cover protects against large critical care bills and extended stays.' });
+  }
 
-  if (topup > 0) whyRows.push({ icon: '💡', strong: 'Base + Super Top-up strategy', text: 'Splitting into ₹' + baseAmt + 'L base and ₹' + topup + 'L super top-up is 30–40% cheaper than a single ₹' + cover + 'L plan while giving identical protection.' });
+  // ── FEATURES (profile-based) ──
+  var mustFeatures = [
+    { text: 'No room rent sublimit', note: 'Sub-limits reduce ALL related costs proportionally — avoid at any tier.' },
+    { text: '0% Copay — insurer pays 100%', note: 'Plans with copay make you pay 20–30% of every bill out of pocket.' }
+  ];
+  var goodFeatures = [
+    { text: 'Unlimited restoration of sum insured', note: 'Cover refills after a claim — essential if multiple hospitalisations in a year.' },
+    { text: 'Cumulative bonus up to 500%', note: 'Cover grows every claim-free year. Starting early maximises this benefit.' },
+    { text: 'Pre-hospitalisation (60 days) + Post (180 days)', note: 'Covers diagnostics before admission and follow-up care after discharge.' },
+    { text: 'Daycare & at-home treatment covered', note: 'Most modern procedures do not require 24hr admission.' },
+    { text: 'Air ambulance coverage up to SI', note: 'Important for emergencies requiring transfer to a better-equipped facility.' }
+  ];
 
-  // ── FEATURES ──
-  var features = [];
-  features.push({ icon: '🔄', text: 'Restoration benefit — cover refills after a claim (essential for families)' });
-  if (condition !== 'none') features.push({ icon: '⏳', text: 'Shorter waiting period for pre-existing diseases (look for 2 years or less)' });
-  if (age >= 45 || condition !== 'none') features.push({ icon: '🧬', text: 'Critical illness cover or rider — cardiac, cancer, kidney failure' });
-  if (m !== 'self') features.push({ icon: '🤝', text: 'No co-payment clause — avoid plans that make you pay 20–30% of bills' });
-  features.push({ icon: '🏥', text: 'Daycare procedures covered — most modern procedures don\'t require 24hr admission' });
-  if (city === 'metro' || city === 'urban') features.push({ icon: '🛏️', text: 'No room rent limit or at least single AC room — sub-limits reduce all related costs' });
+  // Profile-specific additions
+  if (condition !== 'none') goodFeatures.unshift({ text: 'Shorter waiting period for pre-existing diseases', note: 'Look for plans with 2-year or less waiting period for your condition.' });
+  if (age >= 45 || condition === 'heart') mustFeatures.push({ text: 'Critical illness cover or rider', note: 'Covers cardiac events, cancer, kidney failure — lump sum payout on diagnosis.' });
+  if (m !== 'self') goodFeatures.push({ text: 'No sub-limits on modern treatments', note: 'Covers robotic surgery, stem cell therapy and other advanced procedures.' });
+  if (m === 'parents' || m === 'self+spouse+children+parents') goodFeatures.push({ text: 'Renewal discount for healthy lifestyle', note: 'Some plans reward claim-free years with premium discounts.' });
 
   // ── RENDER ──
-  document.getElementById('rAmount').textContent = fmtCover(cover);
-  document.getElementById('rPlan').textContent = planType;
-  document.getElementById('rRiskLabel').textContent = riskLabel;
-  document.getElementById('rRiskFill').style.width = riskPct + '%';
-  document.getElementById('rRiskFill').style.background = riskColor;
-  document.getElementById('rBase').textContent = fmtCover(baseAmt);
-  document.getElementById('rTopup').textContent = topup > 0 ? fmtCover(topup) : 'Not needed';
-  document.getElementById('rRoomRent').textContent = roomRent;
-  document.getElementById('rRestore').textContent = restore;
+  document.getElementById('rRange').textContent = fmtCover(coverMin) + ' – ' + fmtCover(coverMax);
 
-  // Why box
-  var whyBox = document.getElementById('rWhy');
-  whyBox.innerHTML = whyRows.map(function(r) {
+  var riskPill = document.getElementById('rRiskPill');
+  riskPill.className = 'hcr-risk ' + riskClass;
+  document.getElementById('rRiskLabel').textContent = riskLabel;
+
+  // Profile chips
+  document.getElementById('rProfileChips').innerHTML =
+    '<span class="hcr-chip">' + memberDesc + '</span>' +
+    '<span class="hcr-chip">' + cityDesc + '</span>' +
+    '<span class="hcr-chip">Age ' + age + '</span>' +
+    '<span class="hcr-chip">' + planType + '</span>';
+
+  // Why rows
+  document.getElementById('rWhy').innerHTML = whyRows.map(function(r) {
     return '<div class="why-row"><span class="why-icon">' + r.icon + '</span><div class="why-text"><strong>' + r.strong + '</strong>' + r.text + '</div></div>';
   }).join('');
 
-  // Features box
-  var featBox = document.getElementById('rFeatures');
-  featBox.innerHTML = features.map(function(f) {
-    return '<div class="why-row"><span class="why-icon">' + f.icon + '</span><div class="why-text">' + f.text + '</div></div>';
+  // Features
+  var featHTML = mustFeatures.map(function(f) {
+    return '<div class="feat-row"><div class="feat-check must">★</div><div><strong style="color:var(--text);font-size:12px;">' + f.text + '</strong> <span class="must-badge">Must have</span><br><span style="font-size:11px;color:var(--muted);">' + f.note + '</span></div></div>';
   }).join('');
+  featHTML += goodFeatures.map(function(f) {
+    return '<div class="feat-row"><div class="feat-check good">✓</div><div><strong style="color:var(--text);font-size:12px;">' + f.text + '</strong><br><span style="font-size:11px;color:var(--muted);">' + f.note + '</span></div></div>';
+  }).join('');
+  document.getElementById('rFeatures').innerHTML = featHTML;
+
+  // Reset to tab 1
+  hcrSwitch(1);
 
   // WA message
-  var waMsg = 'Hi Sanjan! I used your health cover estimator. Based on my profile — ' + memberDesc + ', age ' + age + ', in a ' + cityDesc + ' — it recommended ₹' + cover + 'L coverage. Can you do a free assessment and help me find the right plan?';
+  var waMsg = 'Hi Sanjan! I used your health cover estimator. Profile: ' + memberDesc + ', age ' + age + ', ' + cityDesc + ' city. It recommended ₹' + coverMin + 'L–₹' + coverMax + 'L coverage. Can you do a free assessment?';
   document.getElementById('rWaBtn').dataset.msg = waMsg;
 }
   // ── HEALTH CALC: wire WA button via main site m5 ──
@@ -2549,4 +2619,3 @@ function calculate() {
 </body>
 </html>
 
-=
