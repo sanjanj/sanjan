@@ -2019,7 +2019,10 @@
         dot.className = 'nifty-dot' + (marketOpen ? '' : ' closed');
         dot.title = marketOpen ? 'Market Open' : 'Market Closed';
       }
-      if (datetimeEl) datetimeEl.textContent = formatISTDatetime();
+      if (datetimeEl) {
+        const timeStr = formatISTDatetime();
+        datetimeEl.textContent = marketOpen ? timeStr : timeStr + '  ·  Closed';
+      }
       if (ticker) ticker.classList.add('loaded');
     }
 
@@ -2051,10 +2054,18 @@
       if (!result) throw new Error('No data');
       const meta = result.meta;
       const price = meta.regularMarketPrice;
-      const prev  = meta.chartPreviousClose || meta.previousClose;
-      const pts   = (prev && prev !== 0) ? Math.abs(price - prev) : null;
-      const pct   = (prev && prev !== 0) ? ((price - prev) / prev * 100) : 0;
-      const isUp  = price >= prev;
+      // Use Yahoo's pre-calculated values, fallback to manual if zero/null
+      let rawChange = meta.regularMarketChange;
+      let rawPct    = meta.regularMarketChangePercent;
+      // If Yahoo returns 0 or null, calculate manually from previousClose
+      if (!rawChange) {
+        const prev = meta.regularMarketPreviousClose || meta.chartPreviousClose || meta.previousClose;
+        rawChange = (prev && prev !== 0) ? (price - prev) : 0;
+        rawPct    = (prev && prev !== 0) ? ((price - prev) / prev * 100) : 0;
+      }
+      const pts  = Math.abs(rawChange);
+      const pct  = rawPct;
+      const isUp = rawChange >= 0;
       // Use IST time as reliable fallback — NSE open Mon–Fri 9:15am–3:30pm IST
       const nowIST = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
       const istHHMM = nowIST.getHours() * 100 + nowIST.getMinutes();
