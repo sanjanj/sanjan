@@ -1,17 +1,14 @@
-
-sw.js
-
 // Sanjan MFD – Service Worker
 // Caches the site for offline use. No external data is ever cached.
 
 const CACHE_NAME = 'sanjan-v1';
-const OFFLINE_URL = '/sanjan/404.html';
+const OFFLINE_URL = '/404.html';
 
 const PRECACHE = [
-  '/sanjan/',
-  '/sanjan/index.html',
-  '/sanjan/404.html',
-  '/sanjan/manifest.json'
+  '/',
+  '/index.html',
+  '/404.html',
+  '/manifest.json'
 ];
 
 // ── INSTALL: cache core files ──────────────────────────
