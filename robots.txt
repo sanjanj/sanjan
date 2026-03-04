@@ -1,4 +1,8 @@
+
+robots.txt
+
 User-agent: *
 Allow: /
 
-Sitemap: https://sanjanj.github.io/sanjan/sitemap.xml
+Sitemap: https://sanjanj.github.io/sitemap.xml
+
