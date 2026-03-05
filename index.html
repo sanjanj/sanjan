@@ -73,33 +73,6 @@
 }
 </script>
 
-<!-- Person Schema – helps Google recognise sanjanjayadevan as a real person's name -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Sanjan Jayadevan",
-  "alternateName": "sanjanjayadevan",
-  "url": "https://sanjanjayadevan.in/",
-  "image": "https://sanjanjayadevan.in/og-image.png",
-  "jobTitle": "Mutual Fund Distributor",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "AMFI Registered MFD – ARN-321342"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Thrissur",
-    "addressRegion": "Kerala",
-    "addressCountry": "IN"
-  },
-  "sameAs": [
-    "https://www.instagram.com/sanjanjayadevan",
-    "https://www.assetplus.in/mfd/sanjan"
-  ]
-}
-</script>
-
 
 <!-- FAQPage Schema for Google Rich Results -->
 <script type="application/ld+json">
@@ -2090,10 +2063,21 @@
       if (!result) throw new Error('No data');
       const meta = result.meta;
       const price = meta.regularMarketPrice;
-      // Always calculate manually from previousClose — Yahoo's change field can be stale/wrong
-      const prev = meta.regularMarketPreviousClose || meta.chartPreviousClose || meta.previousClose;
-      let rawChange = (prev && prev !== 0) ? (price - prev) : (meta.regularMarketChange || 0);
-      let rawPct    = (prev && prev !== 0) ? ((price - prev) / prev * 100) : (meta.regularMarketChangePercent || 0);
+      // Use closing prices array for accurate previousClose (avoids stale meta values from proxies)
+      let prev = null;
+      try {
+        const closes = result.indicators?.quote?.[0]?.close || [];
+        const validCloses = closes.filter(v => v !== null && v !== undefined && v > 0);
+        if (validCloses.length >= 2) {
+          prev = validCloses[validCloses.length - 2]; // yesterday's actual close
+        }
+      } catch(e) {}
+      // Fallback to meta fields if array method fails
+      if (!prev || prev <= 0) {
+        prev = meta.regularMarketPreviousClose || meta.chartPreviousClose || meta.previousClose;
+      }
+      let rawChange = (prev && prev > 0) ? (price - prev) : 0;
+      let rawPct    = (prev && prev > 0) ? ((price - prev) / prev * 100) : 0;
       const pts  = Math.abs(rawChange);
       const pct  = rawPct;
       const isUp = rawChange >= 0;
